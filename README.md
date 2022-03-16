@@ -1,5 +1,5 @@
-# Oil_Price_Hike
-Final project for Data Analytics Bootcamp (Group 4)
+# Introduction
+This is the final project for Data Analytics Bootcamp (Group 4). We integrated the data analystic skills and tools we learnt from the bootcamp into this final project.
 
 ## Objective
 * Topic: to be fill-in
