@@ -1,6 +1,9 @@
 # Oil_Price_Hike
 Final project for Data Analytics Bootcamp (Group 4)
 
+# Please Create Your Own Branch before merging to Main Branch
+* branch name can be: `oil_db`, `oil_ml`, `oil_tech` etc...
+
 ## Objective
 * Topic: to be fill-in
 * Why we select this topic
