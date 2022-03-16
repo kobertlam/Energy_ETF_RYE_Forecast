@@ -1,5 +1,5 @@
-# Oil_Price_Hike
-Final project for Data Analytics Bootcamp (Group 4)
+# Introduction
+This is the final project for Data Analytics Bootcamp (Group 4). We integrated the data analystic skills and tools we learnt from the bootcamp into this final project.
 
 # Please Create Your Own Branch before merging to Main Branch
 * branch name can be: `oil_db`, `oil_ml`, `oil_tech` etc...
