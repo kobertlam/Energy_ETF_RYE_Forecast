@@ -22,7 +22,8 @@ This is the final project for Data Analytics Bootcamp (Group 4). We integrated t
 * by *Pedro*
 
 ## Database Model
-* by *Yidan*
+* ERD
+* SQL
 
 ## Technologies Use
 * by *Bowen*
