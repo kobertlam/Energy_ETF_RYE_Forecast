@@ -5,7 +5,7 @@ This is the final project for Data Analytics Bootcamp (Group 4). We integrated t
 * branch name can be: `oil_db`, `oil_ml`, `oil_tech` etc...
 
 ## Objective
-* Topic: Predicting the stock price on several top oil companies trading on the North American market based on the crude oil price.
+* Topic: Predicting the stock price on top 10 oil companies trading on the North American market based on the crude oil price.
 * Why we select this topic
   
 ## Source of Data
