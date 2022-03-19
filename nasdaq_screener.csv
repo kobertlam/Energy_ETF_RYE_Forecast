@@ -1,4 +1,4 @@
-Symbol,Name,Last Sale,Net Change,% Change,Market Cap,Country,IPO Year,Volume,Sector,Industry
+ticker,Name,Last Sale,Net Change,% Change,Market Cap,Country,IPO Year,Volume,Sector,Industry
 A,Agilent Technologies Inc. Common Stock,$136.82,1.82,1.348%,41061512241.00,United States,1999,1167918,Capital Goods,Electrical Products
 AA,Alcoa Corporation Common Stock ,$80.73,5.10,6.743%,14967586773.00,,2016,8421602,Basic Industries,Metal Fabrications
 AAC,Ares Acquisition Corporation Class A Ordinary Shares,$9.76,-0.01,-0.102%,1220000000.00,,2021,31136,Finance,Business Services
