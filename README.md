@@ -9,5 +9,4 @@ We've decided to use SQL, and the ERD was created based on the datasets below:
 * Foreign Key: date
 * Foreign Key: ticker
   
-  
-by *Yidan*
+Note: Table 11 and 12 are not displayed with full information due to the limitation of free version QuickDBD.
