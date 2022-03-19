@@ -19,7 +19,7 @@ This is the final project for Data Analytics Bootcamp (Group 4). We integrated t
 * We also used Zoom meeting for group collaboration.
 
 ## Machine Learning Model
-* by *Pedro*
+* ![Machine Learning Flow Chart](Resources/ml_flow_chart.jpeg)
 
 ## Database Model
 * by *Yidan*
