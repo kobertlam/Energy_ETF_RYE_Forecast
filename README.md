@@ -23,7 +23,7 @@ This is the final project for Data Analytics Bootcamp (Group 4). We integrated t
 ## Machine Learning Model
 * by *Pedro*
 
-## [Database Model](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis.git)
+## [Database Model](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/tree/database)
 ![QuickDBD](https://user-images.githubusercontent.com/93500353/159140505-adecb2ca-1ac1-481a-97da-a7c9e87b2562.png)  
 We've decided to use SQL, and the ERD was created based on the datasets below:
 1. brent_spot_price_crude_oil
