@@ -29,7 +29,11 @@ The data that we will be using are from the following sources. The data tables a
 
 ## Machine Learning Model
 
-* by *Pedro*
+* The models will use one dependent variable (stock price) and one independent variable (oil price).
+* The programming language will be Python and the main libraries are: Numpy, Pandas, Matplotlib and SickitLearn. 
+* We have decided to use 3 different Machine Learning Models: Regression Analysis, Random Forest and Tensor Flow.
+
+* ![Machine Learning Flow Chart](Resources/ml_flow_chart.jpeg)
 
 ## [Database Model](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/tree/database)
 
