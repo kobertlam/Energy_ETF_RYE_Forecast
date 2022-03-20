@@ -33,7 +33,7 @@ The data that we will be using are from the following sources. The data tables a
 * The programming language will be Python and the main libraries are: Numpy, Pandas, Matplotlib and SickitLearn. 
 * We have decided to use 3 different Machine Learning Models: Regression Analysis, Random Forest and Tensor Flow.
 
-* ![Machine Learning Flow Chart](Resources/ml_flow_chart.jpeg)
+* ![Machine Learning Flow Chart](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/blob/machine_learning_model/Resources/ml_flow_chart.jpeg)
 
 ## [Database Model](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/tree/database)
 
