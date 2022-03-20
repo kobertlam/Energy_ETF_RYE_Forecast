@@ -4,7 +4,7 @@ This is the final project for Data Analytics Bootcamp for our group (Group 4). W
 
 We aim to, based on the crude oil price, predict the stock prices of a portfolio that we have created which includes the 10 largest oil companies by market cap traded in the stock market.
 
-## [Purpose of this Project](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/tree/presentation)
+## Purpose of this Project
 
 ### Background
 
@@ -25,6 +25,8 @@ The value investment theories indicate that the market/stock value of any compan
 
 * We created a private group chat in `Slack` as the primary communication channel within the team.
 * We also used Zoom meeting for group collaboration.
+
+Details on our presentation of the project are available in the [presentation](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/tree/presentation) branch.
 
 ## Data Source
 
