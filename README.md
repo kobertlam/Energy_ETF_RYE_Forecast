@@ -19,6 +19,10 @@ This is the final project for Data Analytics Bootcamp (Group 4). We integrated t
 * We also used Zoom meeting for group collaboration.
 
 ## Machine Learning Model
+* The models will use one dependent variable (stock price) and one independent variable (oil price).
+* The programming language will be Python and the mais libraries are: Numpy, Pandas, Matplotlib and SickitLearn. 
+* We have decided to use 3 different Machine Learning Models: Regression Analysis, Random Forest and Tensor Flow.
+
 * ![Machine Learning Flow Chart](Resources/ml_flow_chart.jpeg)
 
 ## Database Model
