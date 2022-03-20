@@ -1,5 +1,6 @@
-# Introduction
-This is the final project for Data Analytics Bootcamp (Group 4). We integrated the data analystic skills and tools we learnt from the bootcamp into this final project.
+# Oil Price and Stock Price Analysis
+
+This is the final project for Data Analytics Bootcamp for our group (Group 4). We integrated the data analystic skills and tools we learnt from the bootcamp into this final project.
 
 ## [Objective](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/tree/presentation)
 * **Topic:** Predicting the stock prices for a portfolio of the top 10 oil companies trading in U.S. based on the crude oil price.
@@ -36,5 +37,16 @@ We've decided to use SQL, and the ERD was created based on the datasets below:
   
 Note: Table 11 and 12 are not displayed with full information due to the limitation of free version QuickDBD.
 
-## Technologies Use
-* by *Bowen*
+## [Technologies Used](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/tree/technologies)
+
+### Data Cleaning and Analysis
+Pandas will be used to clean the data and perform an exploratory analysis. Further analysis will be completed using Python/Jupyter Notebook/Jupyter Lab.
+
+### Database Storage
+PostgreSQL is the database we intend to use, and we will connect to the database through Python/Jupyter Notebook/Jupyter Lab.
+
+### Machine Learning
+Regression Analysis, Random Forest, TensorFlow with Keras Sequential Model are the Machine Learning libraries we'll be using. Details can be found at the [machine_learning_model](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/tree/machine_learning_model) branch. 
+
+### Dashboard
+Tableau will be used to create a interactive dashboard. 
