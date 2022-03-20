@@ -12,21 +12,23 @@ Brent crude spot price jumped to $133 a barrel on March 8, 2022 and it represent
 
 ### Questions to be Answered
 
-1. Is there any relationship between the crude oil price and the stock prices of the oil companies?
-2. What are the trends and patterns of the portfolio prices?
+1. Is there any relationship between the crude oil prices and the stock prices of the oil companies?
+2. What are the trends and patterns of the stock prices within our portfolio?
 3. Which oil company stock(s) would be affected the most by the crude oil prices? Which would be affect the least? 
-4. Any sessional trends and patterns on crude oil price?
+4. Any sessional trends and patterns on crude oil prices?
 
 ### Benefits
 
-The value investment theories indicate that the market/stock value of any company tends to approach the actual/real value. If we are able to determine the relationship between the stock prices of the oil companies and the crude oil prices, investors or fund managers will be able to make better decisions when analyzing the stock market. 
+The value investment theories indicate that the market/nominal stock value of any company tends to approach the real value. If a stock is under-valued for now, the stock price tends to increase. If a stock is over-valued for now, the stock price is likely to decrease over time. 
+
+If we are able to determine the relationship between the stock prices of the oil companies and the crude oil prices, investors or fund managers will be able to make better decisions when analyzing the stock market. 
 
 ### Team Collaboration - Communication Protocols
 
 * We created a private group chat in `Slack` as the primary communication channel within the team.
 * We also used Zoom meeting for group collaboration.
 
-Details on our presentation of the project are available in the [presentation](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/tree/presentation) branch.
+Details on our presentation of the project can also be found in the [presentation](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/tree/presentation) branch.
 
 ## Data Source
 
@@ -36,7 +38,7 @@ The data that we will be using are from the following sources. The data tables a
 2. [Nasdaq Screener](https://www.nasdaq.com/market-activity/stocks/screener) to select top 10 oil companies
 3. Stock price from [`yfinance`](https://pypi.org/project/yfinance/) Yahoo! Finance's API 
 
-## Machine Learning Model
+## Machine Learning Models
 
 * The models will use one dependent variable (stock price) and one independent variable (oil price).
 * The programming language will be Python and the main libraries are: Numpy, Pandas, Matplotlib and SickitLearn. 
@@ -44,7 +46,7 @@ The data that we will be using are from the following sources. The data tables a
 
 * ![Machine Learning Flow Chart](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/blob/machine_learning_model/Resources/ml_flow_chart.jpeg)
 
-## [Database](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/tree/database)
+## Database
 
 We've decided to use SQL, and the ERD was created based on the datasets below:
 1. brent_spot_price_crude_oil
@@ -55,13 +57,15 @@ We've decided to use SQL, and the ERD was created based on the datasets below:
 * Foreign Key: date
 * Foreign Key: ticker
 
-Our ERD is shown below and details are available in the [database](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/tree/database) branch. 
+Our ERD is shown below and details can also be found in the [database](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/tree/database) branch. 
 
 ![QuickDBD](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/blob/database/Resources/QuickDBD.png)
 
 Note: Table 11 and 12 are not displayed with full information due to the limitation of free version QuickDBD.
 
-## [Technologies Used](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/tree/technologies)
+## Technologies Used
+
+Details can also be found in the [technologies](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/tree/technologies) branch. 
 
 ### Data Cleaning and Analysis
 Pandas will be used to clean the data and perform an exploratory analysis. Further analysis will be completed using Python/Jupyter Notebook/Jupyter Lab.
@@ -71,7 +75,7 @@ PostgreSQL is the database we intend to use, and we will connect to the database
 
 ### Machine Learning
 
-Regression Analysis, Random Forest, TensorFlow with Keras Sequential Model are the Machine Learning libraries we'll be using. Please refer to [the Machine Learning Model section](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis#machine-learning-model). Details can also be found at the [machine_learning_model](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/tree/machine_learning_model) branch. 
+Regression Analysis, Random Forest, TensorFlow with Keras Sequential Model are the Machine Learning libraries we'll be using. Please refer to the [Machine Learning Models](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis#machine-learning-model) section. Details can also be found in the [machine_learning_model](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/tree/machine_learning_model) branch. 
 
 ### Dashboard
 Tableau will be used to create a interactive dashboard. 
