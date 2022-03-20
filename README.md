@@ -20,11 +20,3 @@ This is the final project for Data Analytics Bootcamp (Group 4). We integrated t
 * We created a private group chat in `Slack` as the primary communication channel within the team.
 * We also used Zoom meeting for group collaboration.
 
-## Machine Learning Model
-* by *Pedro*
-
-## Database Model
-* by *Yidan*
-
-## Technologies Use
-* by *Bowen*
