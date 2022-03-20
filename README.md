@@ -54,7 +54,7 @@ PostgreSQL is the database we intend to use, and we will connect to the database
 
 ### Machine Learning
 
-Regression Analysis, Random Forest, TensorFlow with Keras Sequential Model are the Machine Learning libraries we'll be using. Please refer to [this section](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis#machine-learning-model). Details can also be found at the [machine_learning_model](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/tree/machine_learning_model) branch. 
+Regression Analysis, Random Forest, TensorFlow with Keras Sequential Model are the Machine Learning libraries we'll be using. Please refer to [the Machine Learning Model section](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis#machine-learning-model). Details can also be found at the [machine_learning_model](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/tree/machine_learning_model) branch. 
 
 ### Dashboard
 Tableau will be used to create a interactive dashboard. 
