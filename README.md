@@ -1,13 +1,32 @@
 # Oil Price and Stock Price Analysis
 
-This is the final project for Data Analytics Bootcamp for our group (Group 4). We integrated the data analystic skills and tools we learnt from the bootcamp into this final project.
+This is the final project for Data Analytics Bootcamp for our group (Group 4). We have integrated the data analystic skills and tools we have learnt from the bootcamp into this final project.
 
-## [Objective](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/tree/presentation)
+We aim to, based on the crude oil price, predict the stock prices of a portfolio that we have created which includes the 10 largest oil companies by market cap traded in the stock market.
 
-* **Topic:** Predicting the stock prices for a portfolio of the top 10 oil companies trading in U.S. based on the crude oil price.
-* Brent crude spot price jumped to $133 a barrel on 8 March 2022 represents the highest oil prices since 2008.  Oil companies supply billions of barrels of petroleum products daily to power transportation and industry.  The fluctuation of the crude oil price has direct impact on the production cost of the carbon-based fuels and products, which in turn impacting the profitability and the stock prices of the oil companies.  In this project, we would like bring insights to fund managers and investors who are interested in investing the oil-related sector.  We will study if there is any relationship between the crude oil price and the stock prices of the top 10 oil companies trading in U.S.  Ideally, we may suggest if the portfolio is currently under-valued or over-valued for investing, and also the trend in the future.
-  
-## Source of Data
+## [Purpose of this Project](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/tree/presentation)
+
+### Background
+
+Brent crude spot price jumped to $133 a barrel on March 8, 2022 and it represents the highest oil prices since 2008. Oil companies supply billions of barrels of petroleum products daily to power transportation and industry. The fluctuation of the crude oil price has direct impact on the production cost of the carbon-based fuels and products, which in turn impacting the profitability and the stock prices of the oil companies. In this project, we would like bring insights to fund managers and investors who are interested in investing the oil-related sector. We will study if there is any relationship between the crude oil price and the stock prices of the top 10 oil companies trading in U.S. Ideally, we may suggest if the portfolio is currently under-valued or over-valued for investing, and also see if we are able to identify a trend or pattern in the future.
+
+### Questions to be Answered
+
+1. Is there any relationship between the crude oil price and the stock prices of the oil companies?
+2. What are the trends and patterns of the portfolio prices?
+3. Which oil company stock(s) would be affected the most by the crude oil prices? Which would be affect the least? 
+4. Any sessional trends and patterns on crude oil price?
+
+### Benefits
+
+The value investment theories indicate that the market/stock value of any company tends to approach the actual/real value. If we are able to determine the relationship between the stock prices of the oil companies and the crude oil prices, investors or fund managers will be able to make better decisions when analyzing the stock market. 
+
+### Team Collaboration - Communication Protocols
+
+* We created a private group chat in `Slack` as the primary communication channel within the team.
+* We also used Zoom meeting for group collaboration.
+
+## Data Source
 
 The data that we will be using are from the following sources. The data tables are available in the [dataset](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/tree/dataset) branch. 
 
@@ -15,25 +34,11 @@ The data that we will be using are from the following sources. The data tables a
 2. [Nasdaq Screener](https://www.nasdaq.com/market-activity/stocks/screener) to select top 10 oil companies
 3. Stock price from [`yfinance`](https://pypi.org/project/yfinance/) Yahoo! Finance's API 
 
-## Questions to Answer with the Data
-
-1. What is the best and worst performers among the 10 oil companies?
-2. Any sessional pattern on crude oil price?
-3. Is there any relationship between the crude oil price and the stock prices of the oil companies?
-4. What is the trend of the portfolio price?
-
-## Communication Protocols
-
-* We created a private group chat in `Slack` as the primary communication channel within the team.
-* We also used Zoom meeting for group collaboration.
-
 ## Machine Learning Model
 
 * by *Pedro*
 
-## [Database Model](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/tree/database)
-
-![QuickDBD](https://user-images.githubusercontent.com/93500353/159140505-adecb2ca-1ac1-481a-97da-a7c9e87b2562.png)
+## [Database](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/tree/database)
 
 We've decided to use SQL, and the ERD was created based on the datasets below:
 1. brent_spot_price_crude_oil
@@ -43,7 +48,11 @@ We've decided to use SQL, and the ERD was created based on the datasets below:
 3. Top 10 oil companies historical stock price - 10 ticker files
 * Foreign Key: date
 * Foreign Key: ticker
-  
+
+Our ERD is shown below and details are available in the [database](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/tree/database) branch. 
+
+![QuickDBD](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/blob/database/Resources/QuickDBD.png)
+
 Note: Table 11 and 12 are not displayed with full information due to the limitation of free version QuickDBD.
 
 ## [Technologies Used](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/tree/technologies)
