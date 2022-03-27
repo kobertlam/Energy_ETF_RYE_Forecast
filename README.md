@@ -68,16 +68,11 @@ We've decided to use SQL, and the ERD was created based on the datasets below:
 1. brent_spot_price_crude_oil
 * Primary key: date
 2. nasdaq_screener
-* Primary key: ticker
-3. Top 10 oil companies historical stock price - 10 ticker files
-* Foreign Key: date
-* Foreign Key: ticker
+* Foreign key: date
 
 Our ERD is shown below and details can also be found in the [database](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/tree/database) branch. 
 
-![QuickDBD](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/blob/database/Resources/QuickDBD.png)
-
-Note: Table 11 and 12 are not displayed with full information due to the limitation of free version QuickDBD.
+![QuickDBD](Resources/QuickDBD-export .png)
 
 ## Technologies Used
 
