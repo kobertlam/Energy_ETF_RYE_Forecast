@@ -1,36 +1,21 @@
-# Introduction
-This is the final project for Data Analytics Bootcamp (Group 4). We integrated the data analystic skills and tools we learnt from the bootcamp into this final project.
+# Machine Learning Models
 
-# Please Create Your Own Branch before merging to Main Branch
-* branch name can be: `oil_db`, `oil_ml`, `oil_tech` etc...
+## Labels
 
-## Objective
-* Topic: to be fill-in
-* Why we select this topic
-  
-## Source of Data
-* List out the sources of data
+For now, our models will use one dependent variable and only one independent variable for now. More can be explored in the future. 
 
-## Questions to Answer with the Data
-* to be fill-in
-  
-## Communication Protocols
-* We created a private group chat in `Slack` as the primary communication channel within the team.
-* We also used Zoom meeting for group collaboration.
+The dependent variable (Y) will be the scaled stock price of the portfolio composed of 10 largest oil companies. 
 
-## Machine Learning Model
+The independent variable (X) will be the brent spot price of the crude oil. 
 
-* The models will use one dependent variable X (stock price) and one independent variable Y (oil price).
-* The programming language will be Python and the main libraries are: Numpy, Pandas, Matplotlib and SickitLearn. 
-* We have decided to use 3 different Machine Learning Models: Regression Analysis, Random Forest and TensorFlow.
-* Supervised Regression Analysis: establish a relationship between the two variables by estimating how much one variable affects the other; 
-* Random Forest: take into consideration mutliple regression decision trees and calculates the averages of all predictions to generate an expected stock price;
-* TensorFlow with Keras Sequential Model: Deep learning model where each layer receives input information, calculate the parameters and output the information transformed, following the same process to the next layer until the final result;  
+## Proposed Machine Learning Models to Use
 
-* ![Machine Learning Flow Chart](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/blob/machine_learning_model/Resources/ml_flow_chart.jpeg)
+1. Supervised Regression Analysis: establish a relationship between the two variables by estimating how much one variable affects the other.
+2. Random Forest: take into consideration mutliple regression decision trees and calculates the averages of all predictions to generate an expected stock price.
+3. TensorFlow with Keras Sequential Model: Deep learning model where each layer receives input information, calculate the parameters and output the information transformed, following the same process to the next layer until the final result. 
 
-## Database Model
-* by *Yidan*
+## Flow Chart
 
-## Technologies Use
-* by *Bowen*
+The flow chart can be seen below. 
+
+![Machine Learning Flow Chart](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/blob/machine_learning_model/Resources/ml_flow_chart.jpeg)
