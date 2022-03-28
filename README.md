@@ -1,5 +1,70 @@
 # Machine Learning Models
 
+## Data preprocessing
+
+After acquiring our datasets, we have imported them into our Jupyter Notebook, conducted some preprocessing, and completed some preliminary analysis. 
+
+Below shows the historical daily close prices of the Invesco S&P 500 Equal Weight Energy ETF, which is an exchange traded fund with a portfolio of companies in the energy sector. 
+
+![](Resources/rye_daily.png)
+
+The data is also visualized below through a probability distribution. 
+
+![](Resources/rye_probability_distribution.png)
+
+Commonly, a given time series consist of three systematic components and one non-systematic component. The three systematic components include Level, Trend, and Seasonality. The one non-systematic component is noice. 
+
+![](Resources/rye_stationarity.png)
+
+## Feature engineering and selection
+
+## Data split into training and testing sets
+
+## Models of choice
+
+### ARIMA
+
+### Sequential
+
+## Results
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+![](Resources/rye_seasonality.png)
+
+![](Resources/rye_masd.png)
+
+
+
+![](Resources/arima_split.png)
+
+![](Resources/arima_auto_arima.png)
+
+![](Resources/arima_forecast.png)
+
+![](Resources/rye_multi.png)
+
+![](Resources/sequential_model_loss.png)
+
+![](Resources/sequential_predictions_full.png)
+
+![](Resources/sequential_predictions_test.png)
+
+
 ## Labels
 
 For now, our models will use one dependent variable and only one independent variable for now. More can be explored in the future. 
