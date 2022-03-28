@@ -62,9 +62,15 @@ Forecasting the price of a financial asset is a complex challenge. In general, t
 
 A univariable forecast model reduces this complexity to a minimum – a single factor and ignores the other dimensions. A multivariate model is a simplification as well, but it can take several factors into account. For example, a multivariate stock market prediction model can consider the relationship between the closing price and the opening price, moving averages, daily highs, the price of other stocks, and so on. Multivariate models are not able to fully cover the complexity of the market. However, they offer a more detailed abstraction of reality than univariate models. Multivariate models thus tend to provide more accurate predictions than univariate models.
 
+![](Resources/uni_multi.png)
+
 Because the exchange traded fund of our selection is an ETF from the energy sector, in addtion to the open, high, low, close prices, and volume of this ETF, we have also included the Brent Spot Price of Crude Oil into our neural networks model. 
 
 ![](Resources/rye_multi.png)
+
+After thorough group discussion, we have decided to proceed with one univariate approach and one multivariate approach. The univariate approach will be using the ARIMA model, to predict the future ETF prices solely based on the historical ETF prices. The multivariate approach will be using the Sequential model in neural networks, taking the open, high, low, close prices, volume, as well as the Brent Spot Price of Crude Oil into consideration. Below shows the features that we are going to use in our multivariate model. 
+
+![](Resources/features.png)
 
 ## Data split into training and testing sets
 
@@ -118,6 +124,21 @@ Warnings:
 
 ### Neural networks - Sequential
 
+Transform data
+
+Set batches
+
+```
+Train X shape: (3020, 50, 7)
+Train Y shape: (3020,)
+Test X shape: (767, 50, 7)
+Test Y shape: (767,)
+```
+
+The model loss drops quickly until stablized at a lower level, impling that the model has improved throughout the training process. 
+
+![](Resources/sequential_model_loss.png)
+
 ## Results
 
 ### ARIMA
@@ -137,14 +158,25 @@ Mean Absolute Percentage Error: 0.07837232492941332
 
 ### Neural networks - Sequential
 
-![](Resources/sequential_model_loss.png)
+Below shows the predictions vs actuals from the full time period. 
 
 ![](Resources/sequential_predictions_full.png)
 
+Below shows the predictions vs actuals from the test time period only. 
+
 ![](Resources/sequential_predictions_test.png)
 
-## Flow Chart
+From our latest run, we have got the following excellent results. The MAPE is 2.41% which means the mean of our predictions deviates from the actual values by 2.41%. The MDAPE is 1.65%, lower than the MAPE, which means there are some outliers among the forecast errors. Half of our forecasts deviate by more than 1.65% while the other half by less than 1.65%. 
 
-The flow chart can be seen below. 
+```
+Median Absolute Error (MAE): 0.84
+Mean Absolute Percentage Error (MAPE): 2.41%
+Median Absolute Percentage Error (MDAPE): 1.65%
+```
 
-![Machine Learning Flow Chart](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/blob/machine_learning_model/Resources/ml_flow_chart.jpeg)
+We have also created the function of making a prediction based on the current data on the ETF price of a future date. The interval between the future date and the latest date from the dataset can be adjusted by changing `pred_int`. Currently, `pred_int` is set to 1 to predict the next day's ETF close price. For example, `pred_int` can be set to 5 to predict the next week's (5 business days hereon) ETF close price. 
+
+```
+The close price for ETF on 2022-03-14 is 63.17
+The predicted close price for the next day is 63.189998626708984
+```
