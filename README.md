@@ -1,4 +1,4 @@
-# Oil Price and Stock Price Analysis
+# Energy ETF RYE Forecast
 
 This is the final project for Data Analytics Bootcamp for our group (Group 4). We have integrated the data analystic skills and tools we have learnt from the bootcamp into this final project.
 
