@@ -4,4 +4,5 @@ We've decided to use SQL for database, and the ERD was created based on the data
 1. brent_spot_price_crude_oil
 * Primary key: date
 2. RYE.csv
+* Primary key: data
 * Foreign key: date
