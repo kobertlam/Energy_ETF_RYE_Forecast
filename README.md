@@ -4,6 +4,8 @@
 
 After acquiring our datasets, we have imported them into our Jupyter Notebook, conducted some preprocessing, and completed some preliminary analysis. 
 
+### Preliminary analysis
+
 Below shows the historical daily close prices of the Invesco S&P 500 Equal Weight Energy ETF, which is an exchange traded fund with a portfolio of companies in the energy sector. 
 
 ![](Resources/rye_daily.png)
@@ -12,72 +14,134 @@ The data is also visualized below through a probability distribution.
 
 ![](Resources/rye_probability_distribution.png)
 
-Commonly, a given time series consist of three systematic components and one non-systematic component. The three systematic components include Level, Trend, and Seasonality. The one non-systematic component is noice. 
+### Stationarity analysis
+
+Commonly, a given time series consist of three systematic components and one non-systematic component. The three systematic components include Level, Trend, and Seasonality. The one non-systematic component is the noise. 
+
+> - Level: the average value in the series
+> - Trend: the increasing or decreasing value in the series
+> - Seasonality: the repeating short-term cycle in the series
+> - Noise: the random variation in the series
+
+Before further analysis, we have conducted the [Augmented Dickey-Fuller Test](https://en.wikipedia.org/wiki/Augmented_Dickey%E2%80%93Fuller_test) to check if our time series data is stationary or not, as the time series analysis only works with stationary data. 
+
+The ADF test is one of the most popular statistical tests used to determine the presence of a unit root in the time series, which helps identify if a time series is stationary or not. The null and alternate hypotheses are the following. If we fail to reject the null hypothesis, we can say that the time series is non-stationary, which means this time series can be linear or difference stationary. If both the mean and the standard deviation lines are flat, which implies that the mean and the variance are constant, the time series are stationary. 
+
+- Null Hypothesis: the series has a unit root (value of a = 1)
+- Alternate Hypothesis: the series has no unit root
+
+Below are the results and the visualization. We can see that the time series is not stationary. The p-value is 0.220827, greater than 0.05, so we are not able to reject the Null Hypothesis. In addition, the Test Statistics are greater than the critical values. From the graph, we are able to see that the mean and the variance are fluctuating as well.
+
+```
+Results of dickey fuller test
+Test Statistics                  -2.160673
+p-value                           0.220827
+No. of lags used                  3.000000
+Number of observations used    3868.000000
+critical value (1%)              -3.432042
+critical value (5%)              -2.862288
+critical value (10%)             -2.567168
+dtype: float64
+```
 
 ![](Resources/rye_stationarity.png)
 
+### Separate trend and seasonality
+
+In order to perform a time series analysis, we need to separate trend and seasonality from the time series. The resultant series will become stationary through this process. 
+
+![](Resources/rye_seasonality.png)
+
+The `seasonal_decompose` function has been used to take a log of the time series to reduce the magnitude of the values and reduce the rising trend. Then, we find the rolling average of the time series. A rolling average is calculated by taking input for the past 12 months and by giving a mean consumption value at every point further ahead in the time series. 
+
+![](Resources/rye_masd.png)
+
 ## Feature engineering and selection
 
+Forecasting the price of a financial asset is a complex challenge. In general, the price is determined by a variety of variables, economic cycles, unforeseen events, psychological factors, market sentiment, the weather, or even war. All these variables will more or less have an influence on the price of the financial asset. In addition, many of these variables are interdependent, which makes statistical modeling even more complex. 
+
+A univariable forecast model reduces this complexity to a minimum – a single factor and ignores the other dimensions. A multivariate model is a simplification as well, but it can take several factors into account. For example, a multivariate stock market prediction model can consider the relationship between the closing price and the opening price, moving averages, daily highs, the price of other stocks, and so on. Multivariate models are not able to fully cover the complexity of the market. However, they offer a more detailed abstraction of reality than univariate models. Multivariate models thus tend to provide more accurate predictions than univariate models.
+
+Because the exchange traded fund of our selection is an ETF from the energy sector, in addtion to the open, high, low, close prices, and volume of this ETF, we have also included the Brent Spot Price of Crude Oil into our neural networks model. 
+
+![](Resources/rye_multi.png)
+
 ## Data split into training and testing sets
+
+For both models, ARIMA and Sequential, we have split the data into 80% training dataset and 20% testing dataset. 
+
+![](Resources/arima_split.png)
 
 ## Models of choice
 
 ### ARIMA
 
-### Sequential
+The Auto ARIMA `auto_arima` function is used to identify the most optimal parameters for an ARIMA model, and returns a fitted ARIMA model. This function is based on the commonly-used R function, `forecast::auto.arima`. It works by conducting different tests, including Kwiatkowski–Phillips–Schmidt–Shin, Augmented Dickey-Fuller or Phillips–Perron, to determine the order of differencing, d, and then fitting models within ranges of defined start_p, max_p, start_q, max_q ranges. If the seasonal optional is enabled, it can also identify the optimal P and Q hyper-parameters after conducting the Canova-Hansen to determine the optimal order of seasonal differencing, D. 
 
-## Results
+As can be seen from below results, the best model that we will proceed with is `ARIMA(0,1,0)`. 
 
+```
+Performing stepwise search to minimize aic
+ ARIMA(0,1,0)(0,0,0)[0] intercept   : AIC=-15264.893, Time=0.12 sec
+ ARIMA(1,1,0)(0,0,0)[0] intercept   : AIC=-15265.603, Time=0.10 sec
+ ARIMA(0,1,1)(0,0,0)[0] intercept   : AIC=-15265.689, Time=0.24 sec
+ ARIMA(0,1,0)(0,0,0)[0]             : AIC=-15266.893, Time=0.06 sec
+ ARIMA(1,1,1)(0,0,0)[0] intercept   : AIC=-15218.317, Time=0.37 sec
 
+Best model:  ARIMA(0,1,0)(0,0,0)[0]          
+Total fit time: 0.900 seconds
+                               SARIMAX Results                                
+==============================================================================
+Dep. Variable:                      y   No. Observations:                 3094
+Model:               SARIMAX(0, 1, 0)   Log Likelihood                7634.446
+Date:                Sun, 27 Mar 2022   AIC                         -15266.893
+Time:                        23:21:08   BIC                         -15260.856
+Sample:                             0   HQIC                        -15264.725
+                               - 3094                                         
+Covariance Type:                  opg                                         
+==============================================================================
+                 coef    std err          z      P>|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+sigma2         0.0004   4.93e-06     85.256      0.000       0.000       0.000
+===================================================================================
+Ljung-Box (L1) (Q):                   2.71   Jarque-Bera (JB):              7210.79
+Prob(Q):                              0.10   Prob(JB):                         0.00
+Heteroskedasticity (H):               0.41   Skew:                            -0.57
+Prob(H) (two-sided):                  0.00   Kurtosis:                        10.39
+===================================================================================
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-![](Resources/rye_seasonality.png)
-
-![](Resources/rye_masd.png)
-
-
-
-![](Resources/arima_split.png)
+Warnings:
+[1] Covariance matrix calculated using the outer product of gradients (complex-step).
+```
 
 ![](Resources/arima_auto_arima.png)
 
+### Neural networks - Sequential
+
+## Results
+
+### ARIMA
+
+Below shows the results of the forecast by our ARIMA model on the test dataset based on 95% confidence level. 
+
 ![](Resources/arima_forecast.png)
 
-![](Resources/rye_multi.png)
+Below shows some commonly used accuracy metrics to evaluate our forecast results. Due to the huge fluctuation of the ETF prices, the time series model ARIMA does not work very well in forecasting the future prices, which is expected, as there are other far more significant variables that have impact on the prices of this ETF. 
+
+```
+Mean Squared Error: 0.13534741545347972
+Mean Absolute Error: 0.265734282144839
+Root Mean Squared Error: 0.36789593019423267
+Mean Absolute Percentage Error: 0.07837232492941332
+```
+
+### Neural networks - Sequential
 
 ![](Resources/sequential_model_loss.png)
 
 ![](Resources/sequential_predictions_full.png)
 
 ![](Resources/sequential_predictions_test.png)
-
-
-## Labels
-
-For now, our models will use one dependent variable and only one independent variable for now. More can be explored in the future. 
-
-The dependent variable (Y) will be the scaled stock price of the portfolio composed of 10 largest oil companies. 
-
-The independent variable (X) will be the brent spot price of the crude oil. 
-
-## Proposed Machine Learning Models to Use
-
-1. Supervised Regression Analysis: establish a relationship between the two variables by estimating how much one variable affects the other.
-2. Random Forest: take into consideration mutliple regression decision trees and calculates the averages of all predictions to generate an expected stock price.
-3. TensorFlow with Keras Sequential Model: Deep learning model where each layer receives input information, calculate the parameters and output the information transformed, following the same process to the next layer until the final result. 
 
 ## Flow Chart
 
