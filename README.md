@@ -171,7 +171,7 @@ _________________________________________________________________
 
 Another important step in our multivariate model is to slice the data into multiple input data sequences with associated target values. Two variables, `sequence_length` and `pred_int` will be defined here with the option to modify for different model training. 
 
-We have used the sliding windows algorithm, which moves a window step by step through the time series data, adding a sequence of `sequence_length` number of data points to the input data with each step. Then, the algorithm stores the target value (close) following this sequence by `pred_int` positions in a separate target dataset. This process will repeat itself with the window and the target value pushed further until going through the entire time series data. Eventually, the algorithm will create a dataset with the input sequences (batches) and their corresponding target values. This process will be applied to both training and testing data. 
+We have used the sliding windows algorithm, which moves a window step by step through the time series data, adding a sequence of `sequence_length` number of data points to the train sequence (input data) with each step. Then, the algorithm stores the target value (close) following this train sequence by `pred_int` positions in a separate target value dataset. This process will repeat itself with the window and the target value pushed further until going through the entire time series data. Eventually, the algorithm will create a dataset containing the train sequences (batches) and their corresponding target values. This process will be applied to both training and testing data. 
 
 ![](Resources/batch.png)
 
