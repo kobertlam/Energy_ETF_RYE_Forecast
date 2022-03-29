@@ -138,7 +138,7 @@ Warnings:
 
 Multivariate models are trained on a three-dimensional data structure. The first dimension is the sequences, the second dimension is the time steps (batches), and the third dimension is the features. Below shows the steps that we have used to transform the multivariate data into a shape that our neural networks model can process during the training. When doing a forecast later on, we will use the same structure. 
 
-![](Resources/transform.png)
+![](Resources/transforming.png)
 
 ```
 Train X shape: (3020, 50, 7)
