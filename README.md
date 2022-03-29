@@ -4,6 +4,14 @@
 
 After acquiring our datasets, we have imported them into our Jupyter Notebook, conducted some preprocessing, and completed some preliminary analysis. 
 
+Below shows the shapes of our tables. With 'date' to be the index, we have 'open', 'high', 'low', 'close', 'adj close', 'volume', and 'brent' as columns. We have 3,872 rows for the RYE historical trading data and 8,845 rows for the Brent Spot Price of Crude Oil data. After joining the tables together, we have a total of 3,842 valid rows. The date range of our data is from November 7, 2006 to March 21, 2022. 
+
+```
+rye shape: (3872, 6)
+brent shape: (8845, 1)
+model_df shape: (3842, 7)
+```
+
 ### Preliminary analysis
 
 Below shows the historical daily close prices of the Invesco S&P 500 Equal Weight Energy ETF, which is an exchange traded fund with a portfolio of companies in the energy sector. 
@@ -60,13 +68,17 @@ The `seasonal_decompose` function has been used to take a log of the time series
 
 Forecasting the price of a financial asset is a complex challenge. In general, the price is determined by a variety of variables, economic cycles, unforeseen events, psychological factors, market sentiment, the weather, or even war. All these variables will more or less have an influence on the price of the financial asset. In addition, many of these variables are interdependent, which makes statistical modeling even more complex. 
 
-A univariable forecast model reduces this complexity to a minimum – a single factor and ignores the other dimensions. A multivariate model is a simplification as well, but it can take several factors into account. For example, a multivariate stock market prediction model can consider the relationship between the closing price and the opening price, moving averages, daily highs, the price of other stocks, and so on. Multivariate models are not able to fully cover the complexity of the market. However, they offer a more detailed abstraction of reality than univariate models. Multivariate models thus tend to provide more accurate predictions than univariate models.
+A univariate forecast model reduces this complexity to a minimum – a single factor and ignores the other dimensions. A multivariate model is a simplification as well, but it can take several factors into account. For example, a multivariate stock market prediction model can consider the relationship between the closing price and the opening price, moving averages, daily highs, the price of other stocks, and so on. Multivariate models are not able to fully cover the complexity of the market. However, they offer a more detailed abstraction of reality than univariate models. Multivariate models thus tend to provide more accurate predictions than univariate models.
 
 ![](Resources/uni_multi.png)
 
-Because the exchange traded fund of our selection is an ETF from the energy sector, in addtion to the open, high, low, close prices, and volume of this ETF, we have also included the Brent Spot Price of Crude Oil into our neural networks model. 
+For the multivariate model, we have included open, high, low, close prices, and volume of this ETF as our features. 
 
 ![](Resources/rye_multi.png)
+
+Because the exchange traded fund of our selection is an ETF from the energy sector, in addtion to the open, high, low, close prices, and volume of this ETF, we have also included the Brent Spot Price of Crude Oil into our neural networks model. 
+
+![](Resources/sequential_daily.png)
 
 After thorough group discussion, we have decided to proceed with one univariate approach and one multivariate approach. The univariate approach will be using the ARIMA model, to predict the future ETF prices solely based on the historical ETF prices. The multivariate approach will be using the Sequential model in neural networks, taking the open, high, low, close prices, volume, as well as the Brent Spot Price of Crude Oil into consideration. Below shows the features that we are going to use in our multivariate model. 
 
@@ -124,9 +136,9 @@ Warnings:
 
 ### Neural networks - Sequential
 
-Transform data
+Multivariate models are trained on a three-dimensional data structure. The first dimension is the sequences, the second dimension is the time steps (batches), and the third dimension is the features. Below shows the steps that we have used to transform the multivariate data into a shape that our neural networks model can process during the training. When doing a forecast later on, we will use the same structure. 
 
-Set batches
+![](Resources/transform.png)
 
 ```
 Train X shape: (3020, 50, 7)
@@ -134,6 +146,34 @@ Train Y shape: (3020,)
 Test X shape: (767, 50, 7)
 Test Y shape: (767,)
 ```
+
+Below shows the structure of our Sequential model. 
+
+```
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ lstm (LSTM)                 (None, 50, 350)           501200    
+                                                                 
+ lstm_1 (LSTM)               (None, 350)               981400    
+                                                                 
+ dense (Dense)               (None, 5)                 1755      
+                                                                 
+ dense_1 (Dense)             (None, 1)                 6         
+                                                                 
+=================================================================
+Total params: 1,484,361
+Trainable params: 1,484,361
+Non-trainable params: 0
+_________________________________________________________________
+```
+
+Another important step in our multivariate model is to slice the data into multiple input data sequences with associated target values. Two variables, `sequence_length` and `pred_int` will be defined here with the option to modify for different model training. 
+
+We have used the sliding windows algorithm, which moves a window step by step through the time series data, adding a sequence of `sequence_length` number of data points to the input data with each step. Then, the algorithm stores the target value (close) following this sequence by `pred_int` positions in a separate target dataset. This process will repeat itself with the window and the target value pushed further until going through the entire time series data. Eventually, the algorithm will create a dataset with the input sequences (batches) and their corresponding target values. This process will be applied to both training and testing data. 
+
+![](Resources/batch.png)
 
 The model loss drops quickly until stablized at a lower level, impling that the model has improved throughout the training process. 
 
@@ -147,7 +187,7 @@ Below shows the results of the forecast by our ARIMA model on the test dataset b
 
 ![](Resources/arima_forecast.png)
 
-Below shows some commonly used accuracy metrics to evaluate our forecast results. Due to the huge fluctuation of the ETF prices, the time series model ARIMA does not work very well in forecasting the future prices, which is expected, as there are other far more significant variables that have impact on the prices of this ETF. 
+Due to the huge fluctuation of the ETF prices, the time series model ARIMA does not work very well in forecasting the future prices, which is expected, as there are other far more significant variables that have impact on the prices of this ETF. Below shows some commonly used accuracy metrics to evaluate our forecast results. 
 
 ```
 Mean Squared Error: 0.13534741545347972
@@ -166,17 +206,17 @@ Below shows the predictions vs actuals from the test time period only.
 
 ![](Resources/sequential_predictions_test.png)
 
-From our latest run, we have got the following excellent results. The MAPE is 2.41% which means the mean of our predictions deviates from the actual values by 2.41%. The MDAPE is 1.65%, lower than the MAPE, which means there are some outliers among the forecast errors. Half of our forecasts deviate by more than 1.65% while the other half by less than 1.65%. 
+From our latest run, we have got the following excellent results. The MAPE is 2.41% which means the mean of our predictions deviates from the actual values by 2.55%. The MDAPE is 1.81%, lower than the MAPE, which means there are some outliers among the forecast errors. Half of our forecasts deviate by more than 1.81% while the other half by less than 1.81%. 
 
 ```
-Median Absolute Error (MAE): 0.84
-Mean Absolute Percentage Error (MAPE): 2.41%
-Median Absolute Percentage Error (MDAPE): 1.65%
+Median Absolute Error (MAE): 0.88
+Mean Absolute Percentage Error (MAPE): 2.55%
+Median Absolute Percentage Error (MDAPE): 1.81%
 ```
 
 We have also created the function of making a prediction based on the current data on the ETF price of a future date. The interval between the future date and the latest date from the dataset can be adjusted by changing `pred_int`. Currently, `pred_int` is set to 1 to predict the next day's ETF close price. For example, `pred_int` can be set to 5 to predict the next week's (5 business days hereon) ETF close price. 
 
 ```
-The close price for ETF on 2022-03-14 is 63.17
-The predicted close price for the next day is 63.189998626708984
+The close price for ETF on 2022-03-21 is 66.36
+The predicted close price for the next day is 66.33999633789062
 ```
