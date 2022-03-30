@@ -58,7 +58,7 @@ The independent variable (X) will be the brent spot price of the crude oil.
 
 The flow chart can be seen below. 
 
-![Machine Learning Flow Chart](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/blob/machine_learning_model/Resources/ml_flow_chart.jpeg)
+![Machine Learning Flow Chart](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/blob/machine_learning_model/Resources/ml_flow_chart1.jpeg)
 
 ## Database
 
