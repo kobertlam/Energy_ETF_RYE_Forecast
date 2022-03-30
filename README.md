@@ -2,13 +2,17 @@
 
 This is the final project for Data Analytics Bootcamp for our group (Group 4). We have integrated the data analystic skills and tools we have learnt from the bootcamp into this final project.
 
-We aim to, based on the crude oil price, predict the stock prices of a portfolio that we have created which includes the 10 largest oil companies by market cap traded in the stock market.
+We aim to, based on the crude oil price and ETF price, forecast the future value of an Energy ETF price (Invesco S&P 500® Equal Weight Energy ETF).
+
+## Presentation
+
+We prepared a [Google Slide](https://docs.google.com/presentation/d/1M9gE1Wv08GLSOgKtwCtLHypvGdmYd1BzGTxuklBDWRo/edit?usp=sharing) for presentation purpose.
 
 ## Purpose of this Project
 
 ### Background
 
-Brent crude spot price jumped to $133 a barrel on March 8, 2022 and it represents the highest oil prices since 2008. Oil companies supply billions of barrels of petroleum products daily to power transportation and industry. The fluctuation of the crude oil price has direct impact on the production cost of the carbon-based fuels and products, which in turn impacting the profitability and the stock prices of the oil companies. In this project, we would like bring insights to fund managers and investors who are interested in investing the oil-related sector. We will study if there is any relationship between the crude oil price and the stock prices of the top 10 oil companies trading in U.S. Ideally, we may suggest if the portfolio is currently under-valued or over-valued for investing, and also see if we are able to identify a trend or pattern in the future.
+Brent crude spot price jumped to $133 a barrel on March 8, 2022 and it represents the highest oil prices since 2008. Oil companies supply billions of barrels of petroleum products daily to power transportation and industry. The fluctuation of the crude oil price has direct impact on the production cost of the carbon-based fuels and products, which in turn impacting the profitability and the stock prices of the oil companies. In this project, we would like bring insights to fund managers and investors who are interested in investing the oil-related sector. We will study if there is any relationship between the crude oil price and the Energy ETF (RYE).
 
 ### Questions to be Answered
 
@@ -75,6 +79,24 @@ Our ERD is shown below and details can also be found in the [database](https://g
 ![QuickDBD](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/blob/database/Resources/QuickDBD.png)
 
 Note: Table 11 and 12 are not displayed with full information due to the limitation of free version QuickDBD.
+
+## Dashboard
+
+We export the data from [`master.ipynb`](https://github.com/kobertlam/Energy_ETF_RYE_Forecast/tree/main/master.ipynb) into CSV files, and then import the CSV files into **Tablueau Public** to create interactive dashboard.
+
+Here is the outline of the dashboard:
+
+![Dashboard Blueprint](https://github.com/kobertlam/Energy_ETF_RYE_Forecast/blob/presentation/Resources/Dashboard_Outline.png)
+
+The dashboard will include the following viz:
+1. A Heatmap for Energy ETF (RYE) portfolio breakdown
+2. A bar chart showing the market value of the individual company within RYE
+3. A time-series plot showing both the Brent crude oil price and RYE price
+4. A time-series plot showing the seasonal changes on oil and RYE price
+5. A time-series plot showing the RYE price and trading volume
+
+The interactive elements:
+* There will be a linkage between the heatmap and bar chart, so that user can filter the data by **Sector**, and both charts will be updated based on the selected Sector
 
 ## Technologies Used
 
