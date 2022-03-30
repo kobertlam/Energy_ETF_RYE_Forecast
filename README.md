@@ -76,6 +76,23 @@ Our ERD is shown below and details can also be found in the [database](https://g
 
 Note: Table 11 and 12 are not displayed with full information due to the limitation of free version QuickDBD.
 
+## Dashboard
+
+We export the data from [`master.ipynb`](https://github.com/kobertlam/Energy_ETF_RYE_Forecast/tree/main/master.ipynb) into CSV files, and then import the CSV files into **Tablueau Public** to create interactive dashboard.
+
+Here is the outline of the dashboard:
+![Dashboard Blueprint](https://github.com/kobertlam/Energy_ETF_RYE_Forecast/tree/presentation/Resources/Dashboard Outline.png)
+
+The dashboard will include the following viz:
+1. A Heatmap for Energy ETF (RYE) portfolio breakdown
+2. A bar chart showing the market value of the individual company within RYE
+3. A time-series plot showing both the Brent crude oil price and RYE price
+4. A time-series plot showing the seasonal changes on oil and RYE price
+5. A time-series plot showing the RYE price and trading volume
+
+The interactive elements:
+* There will be a linkage between the heatmap and bar chart, so that user can filter the data by **Sector**, and both charts will be updated based on the selected Sector
+
 ## Technologies Used
 
 Details can also be found in the [technologies](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/tree/technologies) branch. 
