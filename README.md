@@ -12,10 +12,8 @@ Brent crude spot price jumped to $133 a barrel on March 8, 2022 and it represent
 
 ### Questions to be Answered
 
-1. Is there any relationship between the crude oil prices and the stock prices of the oil companies?
-2. What are the trends and patterns of the stock prices within our portfolio?
-3. Which oil company stock(s) would be affected the most by the crude oil prices? Which would be affect the least? 
-4. Any sessional trends and patterns on crude oil prices?
+1. Are there seasonal trends and patterns on the Energy ETF? Can we forecast the future ETF prices solely based on the historical ETF prices (time series)?
+2. Is there any relationship between the crude oil prices and the ETF prices? Can we forecast the future ETF price based on both the historical ETF prices and the historical crude oil prices?
 
 ### Benefits
 
