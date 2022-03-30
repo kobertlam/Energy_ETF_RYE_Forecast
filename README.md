@@ -82,7 +82,7 @@ We export the data from [`master.ipynb`](https://github.com/kobertlam/Energy_ETF
 
 Here is the outline of the dashboard:
 
-![Dashboard Blueprint](https://github.com/kobertlam/Energy_ETF_RYE_Forecast/tree/presentation/Resources/Dashboard_Outline.png)
+![Dashboard Blueprint](https://github.com/kobertlam/Energy_ETF_RYE_Forecast/blob/presentation/Resources/Dashboard_Outline.png)
 
 The dashboard will include the following viz:
 1. A Heatmap for Energy ETF (RYE) portfolio breakdown
