@@ -333,19 +333,21 @@ The interactive elements:
 
 ## Technologies Used
 
-Details can also be found in the [technologies](../technologies) branch. 
-
-### Data Cleaning and Analysis
-Pandas will be used to clean the data and perform an exploratory analysis. Further analysis will be completed using Python/Jupyter Notebook/Jupyter Lab.
+Details can also be found in the [technologies](https://github.com/kobertlam/Energy_ETF_RYE_Forecast/tree/technologies) branch. 
 
 ### Database Storage
-PostgreSQL is the database we intend to use, and we will connect to the database through Python/Jupyter Notebook/Jupyter Lab.
+
+PostgreSQL is used in our project, as it is efficient for us to connect through Python/Jupyter Notebook/Jupyter Lab.
+
+### Data Cleaning and Analysis
+
+`Yfinance` package is used to acquire the data though Yahoo Finance api. Pandas is used to clean the data and export to our local PostgreSQL database. 
+
+In a saparate notebook, pandas is used with a SQL query to join two tables and import them from our local PostgreSQL database into our notebook. Then, Pandas is used to perform further analysis. 
 
 ### Machine Learning
 
-Regression Analysis, Random Forest, TensorFlow with Keras Sequential Model are the Machine Learning libraries we'll be using. Please refer to the [Machine Learning Models](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis#machine-learning-model) section. Details can also be found in the [machine_learning_model](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/tree/machine_learning_model) branch. 
+ARIMA and TensorFlow with Keras Sequential Model are the Machine Learning models that we have used. Details can also be found in the [machine_learning_model](https://github.com/kobertlam/Energy_ETF_RYE_Forecast/tree/machine_learning_model) branch. 
 
 ### Dashboard
-Tableau will be used to create a interactive dashboard. 
-
-
+Tableau is used to create an interactive dashboard. 
