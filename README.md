@@ -77,7 +77,7 @@ We've decided to use PostgreSQL as our database, as it is easy and efficient for
 
 Below shows the Entity Relationship Diagram of our database. 
 
-![](Resources/ERD.png)
+![](https://github.com/kobertlam/Energy_ETF_RYE_Forecast/blob/f12773c83622fb79887af2161a7c48c50cdcaea4/Resources/ERD.png)
 
 ### Connect with Jupyter Notebook
 
