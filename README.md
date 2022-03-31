@@ -1,6 +1,4 @@
-# Technologies
-
-Details can also be found in the [technologies](https://github.com/kobertlam/Energy_ETF_RYE_Forecast/tree/technologies) branch. 
+# Technologies Used
 
 ## Database Storage
 
