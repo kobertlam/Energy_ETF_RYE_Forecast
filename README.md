@@ -331,7 +331,7 @@ The dashboard will include the following viz:
 The interactive elements:
 * There will be a linkage between the heatmap and bar chart, so that user can filter the data by **Sector**, and both charts will be updated based on the selected Sector
 
-## Technologies Used
+## Technologies
 
 Details can also be found in the [technologies](https://github.com/kobertlam/Energy_ETF_RYE_Forecast/tree/technologies) branch. 
 
