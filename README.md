@@ -8,7 +8,7 @@
 
 ## Database application
 
-We've decided to use PostgreSQL as our database, as it is easy and efficient for us to connect with our [Jupyter Notebook](https://github.com/kobertlam/Energy_ETF_RYE_Forecast/blob/database/postgresql_connection.ipynb). 
+We've decided to use PostgreSQL as our database, as it is easy and efficient for us to connect with our [Jupyter Notebook](postgresql_connection.ipynb). 
 
 Below shows the Entity Relationship Diagram of our database. 
 
@@ -16,7 +16,7 @@ Below shows the Entity Relationship Diagram of our database.
 
 ## Connect with Jupyter Notebook
 
-Below shows the [code](https://github.com/kobertlam/Energy_ETF_RYE_Forecast/blob/database/postgresql_connection.ipynb) to set up and connect to the database. 
+Below shows the code to set up and connect to the database. 
 
 ```
 from sqlalchemy import create_engine
