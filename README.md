@@ -327,7 +327,7 @@ The dashboard will include the following viz:
 2. A bar chart showing the market value of the individual company within RYE
 3. A time-series plot showing both the Brent crude oil price and RYE price
 4. A time-series plot showing the seasonal changes on oil and RYE price
-5. A time-series plot showing the prediction of future RYE price for the next day, next 3 or 5 days
+5. A time-series plot showing the historical and future price of RYE for the next day, next 3 or 5 days
 
 The interactive elements:
 * There will be a linkage between the heatmap and bar chart, so that user can filter the data by **Sector**, and both charts will be updated based on the selected Sector
