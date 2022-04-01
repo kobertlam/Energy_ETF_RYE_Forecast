@@ -316,6 +316,7 @@ The flow chart can be seen below.
 ## Dashboard
 
 We export the data from [`master.ipynb`](../main/master.ipynb) into CSV files, and then import the CSV files into **Tablueau Public** to create interactive dashboard.
+The data of the predicted RYE prices come from the results of the neural networks models.
 
 Here is the outline of the dashboard:
 
