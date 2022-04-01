@@ -44,16 +44,16 @@ We export the data from [`master.ipynb`](https://github.com/kobertlam/Energy_ETF
 
 Here is the outline of the dashboard:
 
-![Dashboard Blueprint](https://github.com/kobertlam/Energy_ETF_RYE_Forecast/blob/presentation/Resources/Dashboard_Outline.png)
+![Dashboard Blueprint1](../presentation/Resources/RYE_Portfolio.png)
+![Dashboard Blueprint2](../presentation/Resources/Time-Series.png)
 
 The dashboard will include the following viz:
 1. A Heatmap for Energy ETF (RYE) portfolio breakdown
 2. A bar chart showing the market value of the individual company within RYE
 3. A time-series plot showing both the Brent crude oil price and RYE price
 4. A time-series plot showing the seasonal changes on oil and RYE price
-5. A time-series plot showing the prediction of RYE price for the next day, next 3 days, and next 5 days
+5. A time-series plot showing the historical and future price of RYE for the next day, next 3 or 5 days
 
 The interactive elements:
 * There will be a linkage between the heatmap and bar chart, so that user can filter the data by **Sector**, and both charts will be updated based on the selected Sector
-* User can select different prediction RYE prices for the next day, next 3 days, and next 5 days
-
+* User can select different prediction of RYE prices for the next day, next 3 days, or next 5 days
