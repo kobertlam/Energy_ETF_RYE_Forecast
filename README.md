@@ -8,7 +8,7 @@ Brent crude spot price jumped to $133 a barrel on March 8, 2022 and it represent
 
 ### Purpose of this Project
 
-This is the final project for Data Analytics Bootcamp for our group (Group 4). We have integrated the data analystic skills and tools we have learnt from the bootcamp into this final project. We aim to, based on the historical prices of an Exchanged Traded Fund (ETF) in the Energy sector, forecast the future prices of the ETF prices (Invesco S&P 500® Equal Weight Energy ETF). 
+This is the final project for Data Analytics Bootcamp for our group (Group 4). We have integrated the data analystic skills and tools we have learnt from the bootcamp into this final project. We aim to, based on the historical prices of an Exchanged Traded Fund (ETF) in the Energy sector and oil Brent prices, forecast the future prices of the ETF prices (Invesco S&P 500® Equal Weight Energy ETF). 
 
 ### Questions to be Answered
 
