@@ -307,6 +307,10 @@ The close price for ETF on 2022-03-21 is 66.36
 The predicted close price for the next day is 66.33999633789062
 ```
 
+#### Work in Progress
+
+We will create two more models to make forecast for the next three days and the next five days. It will be updated to the main branch later. 
+
 ### Flow Chart
 
 The flow chart can be seen below. 
