@@ -27,4 +27,4 @@ sp <- ggscatter(Data_Consolidated, x = "RYE_Close", y = "Oil_Close",
                 add.params = list(color = "red", fill = "lightgray"), # Customize reg. line
                 conf.int = TRUE # Add confidence interval
 )
-sp + stat_cor(aes(label = ..r.label..), label.x = 3)
+sp + stat_cor(aes(label = ..r.label..), label.x = 3) # Add correl results
