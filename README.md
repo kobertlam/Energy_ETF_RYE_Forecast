@@ -31,7 +31,7 @@ Below is an example to export the Pandas DataFrame to our database.
 
 ```
 rye.to_sql('rye', engine)
-brent.to_sql('brent', engine)
+brent.to_sql('brent_spot_price_crude_oil', engine)
 ```
 
 Below is an example to import the data from our database into Pandas DataFrame. 
