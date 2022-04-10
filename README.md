@@ -416,15 +416,15 @@ Tableau is used to create an interactive dashboard.
 
 1. Are there seasonal trends and patterns on the Energy ETF? Can we forecast the future ETF prices solely based on the historical ETF prices (time series)?
 
- Yes, there are. Base on our analysis in [Stationarity Analysis](https://github.com/kobertlam/Energy_ETF_RYE_Forecast#stationarity-analysis), we have used the [Augmented Dickey-Fuller Test](https://en.wikipedia.org/wiki/Augmented_Dickey%E2%80%93Fuller_test) to check if our time series data is stationary or not, and the results show that the data is non-stationary, which means there are seasonal trends and patterns. 
+    - Yes, there are. Base on our analysis in [Stationarity Analysis](https://github.com/kobertlam/Energy_ETF_RYE_Forecast#stationarity-analysis), we have used the [Augmented Dickey-Fuller Test](https://en.wikipedia.org/wiki/Augmented_Dickey%E2%80%93Fuller_test) to check if our time series data is stationary or not, and the results show that the data is non-stationary, which means there are seasonal trends and patterns. 
 
- No, based on our ARIMA model, we are not able to forecast the future ETF prices accurately solely based on the historical ETF prices (time seires). 
+    - No, based on our ARIMA model, we are not able to forecast the future ETF prices accurately solely based on the historical ETF prices (time seires). 
 
 2. Is there any relationship between the crude oil prices and the ETF prices? Can we forecast the future ETF price based on both the historical ETF prices and the historical crude oil prices?
 
-Pedro
+    - Pedro
 
-Yes, based on our Keras Sequential model, we have built models that are able to provide forecasts with decent accuracy to the future ETF price based on both the historical ETF prices and the historical crude oil prices. 
+    - Yes, based on our Keras Sequential model, we have built models that are able to provide forecasts with decent accuracy to the future ETF price based on both the historical ETF prices and the historical crude oil prices. 
 
 ### Results and Limitations
 
