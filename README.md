@@ -4,12 +4,12 @@
 
 After acquiring our datasets, we have imported them into our Jupyter Notebook, conducted some preprocessing, and completed some preliminary analysis. 
 
-Below shows the shapes of our tables. With 'date' to be the index, we have 'open', 'high', 'low', 'close', 'adj close', 'volume', and 'brent' as columns. We have 3,872 rows for the RYE historical trading data and 8,845 rows for the Brent Spot Price of Crude Oil data. After joining the tables together, we have a total of 3,842 valid rows. The date range of our data is from November 7, 2006 to March 21, 2022. 
+Below shows the shapes of our tables. With 'date' to be the index, we have 'open', 'high', 'low', 'close', 'adj close', 'volume', and 'brent' as columns. We have 3,882 rows for the RYE historical trading data and 3,643 rows for the Brent Spot Price of Crude Oil data. After joining the tables together, we have a total of 3,642 valid rows. The date range of our data is from July 30, 2007 to April 8, 2022. 
 
 ```
-rye shape: (3872, 6)
-brent shape: (8845, 1)
-model_df shape: (3842, 7)
+rye shape: (3882, 6)
+brent shape: (3643, 1)
+model_df shape: (3642, 7)
 ```
 
 ### Preliminary analysis
