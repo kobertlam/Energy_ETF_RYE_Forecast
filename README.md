@@ -142,7 +142,7 @@ The ADF test is one of the most popular statistical tests used to determine the 
 - Null Hypothesis: the series has a unit root (value of a = 1)
 - Alternate Hypothesis: the series has no unit root
 
-Below are the results and the visualization. We can see that the time series is not stationary. The p-value is 0.220827, greater than 0.05, so we are not able to reject the Null Hypothesis. In addition, the Test Statistics are greater than the critical values. From the graph, we are able to see that the mean and the variance are fluctuating as well.
+Below are the results and the visualization. We can see that the time series is not stationary. The p-value is 0.214452, greater than 0.05, so we are not able to reject the Null Hypothesis. In addition, the Test Statistics are greater than the critical values. From the graph, we are able to see that the mean and the variance are fluctuating as well.
 
 ```
 Results of dickey fuller test
@@ -251,7 +251,7 @@ Multivariate models are trained on a three-dimensional data structure. The first
 Below shows the shape of our 1-day, 3-day, and 5-day training and testing datasets. 
 
 ```
-1-day
+# 1-day
 Train X shape: (2864, 50, 6)
 Train Y shape: (2864, 1)
 Test X shape: (678, 50, 6)
@@ -412,7 +412,28 @@ Tableau is used to create an interactive dashboard.
   
 ## Conclusion  
 
-Due to the fluctuation of the ETF prices and lack of seasonality of data, the time series ARIMA model wasn't able to provide decent future price forecasts. However, through neural networks sequential model, we are able to find relatively accurate ETF  price predictions 1 day ahead. The perfomance of this model tends to come down with the increase of prediction intervels.
+### Answers to the questions
 
-### Limitation and Recommendation
-Though current model performs well with 1 day prediction and provides great tool for investors to make decision, it does require time and energy from investors to frequently look at the predictions. For long-term strategy planning, it will require better performaing results from longer time interval. While we have current model focuse on the price volatility, we suggest to enhance the project by adding Fear & Greed as a variable to assess the market sentiment impact on ETF prices. 
+1. Are there seasonal trends and patterns on the Energy ETF? Can we forecast the future ETF prices solely based on the historical ETF prices (time series)?
+
+Yes, there are. Base on our analysis in [Stationarity Analysis](https://github.com/kobertlam/Energy_ETF_RYE_Forecast#stationarity-analysis), we have used the [Augmented Dickey-Fuller Test](https://en.wikipedia.org/wiki/Augmented_Dickey%E2%80%93Fuller_test) to check if our time series data is stationary or not, and the results show that the data is non-stationary, which means there are seasonal trends and patterns. 
+
+No, based on our ARIMA model, we are not able to forecast the future ETF prices accurately solely based on the historical ETF prices (time seires). 
+
+2. Is there any relationship between the crude oil prices and the ETF prices? Can we forecast the future ETF price based on both the historical ETF prices and the historical crude oil prices?
+
+Pedro
+
+Yes, based on our Keras Sequential model, we have built models that are able to provide forecasts with decent accuracy to the future ETF price based on both the historical ETF prices and the historical crude oil prices. 
+
+### Results and Limitations
+
+Due to the fluctuation of the ETF prices and lack of seasonality of data, the time series ARIMA model wasn't able to provide decent future price forecasts. 
+
+However, through neural networks sequential model, we are able to find relatively accurate ETF price predictions 1, 3, or 5 day(s) ahead. As for our 1-day model, the MAPE is 2.26% which means the mean of our predictions deviates from the actual values by 2.26%. The MDAPE is 1.56%, lower than the MAPE, which means there are some outliers among the forecast errors. Half of our forecasts deviate by more than 1.56% while the other half by less than 1.56%. The prediction accuracy of these 3 models tend to decrease with the increase of prediction intervels. 
+
+### Recommendations
+
+Though our current sequential models perform well and serves as a great tool for investors to make decisions, they do require time and energy from investors to frequently look at the predictions and make adjustments if applicable. For long-term strategy planning, it will definitely require better prediction accuracy from a longer time interval. While we have current models focus on the price volatility, we suggest to enhance the project by adding Fear & Greed Index as a feature/variable to assess the market sentiment impact on ETF prices. 
+
+The Facebook Prophet model can also be tried as an alternative to the sequential model, to see if it is able to provide more accurate forecasts. 
