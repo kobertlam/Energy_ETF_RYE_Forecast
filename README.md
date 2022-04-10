@@ -183,6 +183,7 @@ For the multivariate model, we have included open, high, low, close prices, and 
 Because the exchange traded fund of our selection is an ETF from the energy sector, in addtion to the open, high, low, close prices, and volume of this ETF, we have also included the Brent Spot Price of Crude Oil into our neural networks model. 
 
 ![](../machine_learning_model/Resources/sequential_daily.png)  
+
 The correlation between the ETF closing price and Crude oil closing price shows below.  
 
 ![](../machine_learning_model/Resources/correlation_RYE_Oil.png)  
@@ -301,7 +302,7 @@ We have used the sliding windows algorithm, which moves a window step by step th
 
 The model loss drops quickly until stablized at a lower level, impling that the model has improved throughout the training process. Below shows the model loss for our 1-day model only. The model loss for the 3-day and 5-day models are available in the Resources folder in the [machine_learning_model](https://github.com/kobertlam/Energy_ETF_RYE_Forecast/tree/machine_learning_model) branch. 
 
-![](../machine_learning_model/Resources/sequential_model_loss.png)
+![](../machine_learning_model/Resources/sequential_model_loss1.png)
 
 ### Results
 
