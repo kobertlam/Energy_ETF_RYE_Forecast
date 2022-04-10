@@ -21,11 +21,6 @@ The value investment theories indicate that the market/nominal stock value of an
 
 If we are able to determine the relationship between the stock prices of the oil companies and the crude oil prices, investors or fund managers will be able to make better decisions when analyzing the stock market. 
 
-### Team Collaboration - Communication Protocols
-
-* We created a private group chat in `Slack` as the primary communication channel within the team.
-* We also used Zoom meeting for group collaboration.
-
 ### Presentation
 
 We prepared a [Google Slide](https://docs.google.com/presentation/d/1M9gE1Wv08GLSOgKtwCtLHypvGdmYd1BzGTxuklBDWRo/edit?usp=sharing) for presentation purposes.
