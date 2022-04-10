@@ -364,7 +364,7 @@ Tableau is used to create an interactive dashboard.
   
 ## Conclusion  
 
-Due to the fluctuation of the ETF prices and lack of seasonality of data, the time series ARIMA model wasn't able to provide decent future price forecasts. Howwever, through neural networks sequential model, we are able to find relatively accurate ETF  price predictions 1 day ahead. The perfomance of this model tends to come down with the increase of prediction intervels.
+Due to the fluctuation of the ETF prices and lack of seasonality of data, the time series ARIMA model wasn't able to provide decent future price forecasts. However, through neural networks sequential model, we are able to find relatively accurate ETF  price predictions 1 day ahead. The perfomance of this model tends to come down with the increase of prediction intervels.
 
 ### Limitation and Recommendation
 Though current model performs well with 1 day prediction and provides great tool for investors to make decision, it does require time and energy from investors to frequently look at the predictions. For long-term strategy planning, it will require better performaing results from longer time interval. While we have current model focuse on the price volatility, we suggest to enhance the project by adding Fear & Greed as a variable to assess the market sentiment impact on ETF prices. 
