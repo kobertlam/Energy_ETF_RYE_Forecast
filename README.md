@@ -25,25 +25,23 @@ If we are able to determine the relationship between the stock prices of the oil
 
 We prepared a [Google Slide](https://docs.google.com/presentation/d/1M9gE1Wv08GLSOgKtwCtLHypvGdmYd1BzGTxuklBDWRo/edit?usp=sharing) for presentation purposes.
 
-We included the "speaker notes" in the Goole Slide, and will provide the record of the presentation practice file.
-
 Details on our presentation of the project can also be found in the [presentation](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/tree/presentation) branch.
 
 ## Database
 
 ### Source of data
 
-1. Dataset for [Brent Spot Price of Crude Oil](https://www.eia.gov/dnav/pet/hist_xls/RBRTEd.xls) (Brent Spot Price, dollars per Barrel) from U.S. Energy Information Administration
+1. Dataset for [Brent Spot Price of Crude Oil](https://www.eia.gov/dnav/pet/hist_xls/RBRTEd.xls) (Brent Spot Price, dollars per Barrel) from U.S. Energy Information Administration. The same data is also available from [`yfinance`](https://pypi.org/project/yfinance/) with ticker `BZ=F`. 
 2. ETF price from [`yfinance`](https://pypi.org/project/yfinance/) Yahoo! Finance's API for ticker `RYE` - Invesco S&P 500 Equal Weight Energy ETF
 3. ETF portfolio holdings from [Invesco](https://www.invesco.com/us/financial-products/etfs/holdings?audienceType=Investor&ticker=RYE) for this ETF
 
 ### Database application
 
-We've decided to use PostgreSQL as our database, as it is easy and efficient for us to connect with our [Jupyter Notebook](../database/postgresql_connection.ipynb). 
+We've decided to use PostgreSQL as our database, as it is easy and efficient for us to connect with our [Jupyter Notebook](postgresql_connection.ipynb). 
 
 Below shows the Entity Relationship Diagram of our database. 
 
-![](../database/Resources/ERD.png)
+![](Resources/ERD.png)
 
 ### Connect with Jupyter Notebook
 
@@ -53,14 +51,33 @@ Below shows the code to set up and connect to the database.
 from sqlalchemy import create_engine
 from config import db_password
 
-db_string = f'postgresql://postgres:{db_password}@127.0.0.1:5432/energy_etf_rye_forecast'
+# Connect to database
+db_string = f'postgresql://postgres:{db_password}@127.0.0.1:5432/energy_etf_forecast'
 engine = create_engine(db_string)
 db_connection = engine.connect()
+```
+
+Below is an example to pull data from Yahoo Finance API with `yfinance`. 
+
+```
+# Acquire data and pre-processing
+ticker = 'RYE'
+rye = yf.download(ticker)
+rye = rye.rename_axis('date')
+rye.columns = ['open', 'high', 'low', 'close', 'adj close', 'volume']
+
+# Acquire data and pre-processing
+ticker = 'BZ=F'
+brent = yf.download(ticker)
+brent = brent.rename_axis('date')
+brent.columns = ['open', 'high', 'low', 'brent', 'adj close', 'volume']
+brent = brent[['brent']]
 ```
 
 Below is an example to export the Pandas DataFrame to our database. 
 
 ```
+# Export to database
 rye.to_sql('rye', engine)
 brent.to_sql('brent_spot_price_crude_oil', engine)
 ```
@@ -68,6 +85,8 @@ brent.to_sql('brent_spot_price_crude_oil', engine)
 Below is an example to import the data from our database into Pandas DataFrame. 
 
 ```
+# Import and join ETF and brent oil data in the future
+
 query = 'SELECT * FROM rye'
 rye = pd.read_sql(query, db_connection, parse_dates=['date'], index_col='date')
 print('rye shape:', rye.shape)
@@ -125,13 +144,13 @@ Below are the results and the visualization. We can see that the time series is 
 
 ```
 Results of dickey fuller test
-Test Statistics                  -2.160673
-p-value                           0.220827
-No. of lags used                  3.000000
-Number of observations used    3868.000000
-critical value (1%)              -3.432042
-critical value (5%)              -2.862288
-critical value (10%)             -2.567168
+Test Statistics                  -2.177664
+p-value                           0.214452
+No. of lags used                  0.000000
+Number of observations used    3641.000000
+critical value (1%)              -3.432147
+critical value (5%)              -2.862334
+critical value (10%)             -2.567193
 dtype: float64
 ```
 
@@ -186,32 +205,32 @@ As can be seen from below results, the best model that we will proceed with is `
 
 ```
 Performing stepwise search to minimize aic
- ARIMA(0,1,0)(0,0,0)[0] intercept   : AIC=-15264.893, Time=0.12 sec
- ARIMA(1,1,0)(0,0,0)[0] intercept   : AIC=-15265.603, Time=0.10 sec
- ARIMA(0,1,1)(0,0,0)[0] intercept   : AIC=-15265.689, Time=0.24 sec
- ARIMA(0,1,0)(0,0,0)[0]             : AIC=-15266.893, Time=0.06 sec
- ARIMA(1,1,1)(0,0,0)[0] intercept   : AIC=-15218.317, Time=0.37 sec
+ ARIMA(0,1,0)(0,0,0)[0] intercept   : AIC=-14267.273, Time=0.11 sec
+ ARIMA(1,1,0)(0,0,0)[0] intercept   : AIC=-14265.770, Time=0.18 sec
+ ARIMA(0,1,1)(0,0,0)[0] intercept   : AIC=-14265.808, Time=0.12 sec
+ ARIMA(0,1,0)(0,0,0)[0]             : AIC=-14269.250, Time=0.06 sec
+ ARIMA(1,1,1)(0,0,0)[0] intercept   : AIC=-14267.863, Time=0.72 sec
 
 Best model:  ARIMA(0,1,0)(0,0,0)[0]          
-Total fit time: 0.900 seconds
+Total fit time: 1.202 seconds
                                SARIMAX Results                                
 ==============================================================================
-Dep. Variable:                      y   No. Observations:                 3094
-Model:               SARIMAX(0, 1, 0)   Log Likelihood                7634.446
-Date:                Sun, 27 Mar 2022   AIC                         -15266.893
-Time:                        23:21:08   BIC                         -15260.856
-Sample:                             0   HQIC                        -15264.725
-                               - 3094                                         
+Dep. Variable:                      y   No. Observations:                 2910
+Model:               SARIMAX(0, 1, 0)   Log Likelihood                7135.625
+Date:                Sun, 10 Apr 2022   AIC                         -14269.250
+Time:                        14:20:14   BIC                         -14263.275
+Sample:                             0   HQIC                        -14267.098
+                               - 2910                                         
 Covariance Type:                  opg                                         
 ==============================================================================
                  coef    std err          z      P>|z|      [0.025      0.975]
 ------------------------------------------------------------------------------
-sigma2         0.0004   4.93e-06     85.256      0.000       0.000       0.000
+sigma2         0.0004   5.29e-06     81.916      0.000       0.000       0.000
 ===================================================================================
-Ljung-Box (L1) (Q):                   2.71   Jarque-Bera (JB):              7210.79
-Prob(Q):                              0.10   Prob(JB):                         0.00
-Heteroskedasticity (H):               0.41   Skew:                            -0.57
-Prob(H) (two-sided):                  0.00   Kurtosis:                        10.39
+Ljung-Box (L1) (Q):                   0.50   Jarque-Bera (JB):              6432.95
+Prob(Q):                              0.48   Prob(JB):                         0.00
+Heteroskedasticity (H):               0.40   Skew:                            -0.50
+Prob(H) (two-sided):                  0.00   Kurtosis:                        10.22
 ===================================================================================
 
 Warnings:
@@ -226,31 +245,48 @@ Multivariate models are trained on a three-dimensional data structure. The first
 
 ![](../machine_learning_model/Resources/transforming.png)
 
-```
-Train X shape: (3020, 50, 7)
-Train Y shape: (3020,)
-Test X shape: (767, 50, 7)
-Test Y shape: (767,)
-```
-
-Below shows the structure of our Sequential model. 
+Below shows the shape of our 1-day, 3-day, and 5-day training and testing datasets. 
 
 ```
+1-day
+Train X shape: (2864, 50, 6)
+Train Y shape: (2864, 1)
+Test X shape: (678, 50, 6)
+Test Y shape: (678, 1)
+
+# 3-day
+Train X shape: (2862, 50, 6)
+Train Y shape: (2862, 1)
+Test X shape: (676, 50, 6)
+Test Y shape: (676, 1)
+
+# 5-day
+Train X shape: (2860, 50, 6)
+Train Y shape: (2860, 1)
+Test X shape: (674, 50, 6)
+Test Y shape: (674, 1)
+```
+
+Below shows the structure of our Sequential models. 
+
+```
+Number of neurons: 300
+Training data shape: (2864, 50, 6)
 Model: "sequential"
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
 =================================================================
- lstm (LSTM)                 (None, 50, 350)           501200    
+ lstm (LSTM)                 (None, 50, 300)           368400    
                                                                  
- lstm_1 (LSTM)               (None, 350)               981400    
+ lstm_1 (LSTM)               (None, 300)               721200    
                                                                  
- dense (Dense)               (None, 5)                 1755      
+ dense (Dense)               (None, 5)                 1505      
                                                                  
  dense_1 (Dense)             (None, 1)                 6         
                                                                  
 =================================================================
-Total params: 1,484,361
-Trainable params: 1,484,361
+Total params: 1,091,111
+Trainable params: 1,091,111
 Non-trainable params: 0
 _________________________________________________________________
 ```
@@ -261,7 +297,7 @@ We have used the sliding windows algorithm, which moves a window step by step th
 
 ![](../machine_learning_model/Resources/batch.png)
 
-The model loss drops quickly until stablized at a lower level, impling that the model has improved throughout the training process. 
+The model loss drops quickly until stablized at a lower level, impling that the model has improved throughout the training process. Below shows the model loss for our 1-day model only. The model loss for the 3-day and 5-day models are available in the Resources folder in the [machine_learning_model](https://github.com/kobertlam/Energy_ETF_RYE_Forecast/tree/machine_learning_model) branch. 
 
 ![](../machine_learning_model/Resources/sequential_model_loss.png)
 
@@ -276,10 +312,10 @@ Below shows the results of the forecast by our ARIMA model on the test dataset b
 Due to the huge fluctuation of the ETF prices, the time series model ARIMA does not work very well in forecasting the future prices, which is expected, as there are other far more significant variables that have impact on the prices of this ETF. Below shows some commonly used accuracy metrics to evaluate our forecast results. 
 
 ```
-Mean Squared Error: 0.13534741545347972
-Mean Absolute Error: 0.265734282144839
-Root Mean Squared Error: 0.36789593019423267
-Mean Absolute Percentage Error: 0.07837232492941332
+Mean Squared Error: 0.14445563111243653
+Mean Absolute Error: 0.28327873123343045
+Root Mean Squared Error: 0.38007319178342025
+Mean Absolute Percentage Error: 0.08338582241621081
 ```
 
 #### Neural networks - Sequential
@@ -292,24 +328,36 @@ Below shows the predictions vs actuals from the test time period only.
 
 ![](../machine_learning_model/Resources/sequential_predictions_test.png)
 
-From our latest run, we have got the following excellent results. The MAPE is 2.41% which means the mean of our predictions deviates from the actual values by 2.55%. The MDAPE is 1.81%, lower than the MAPE, which means there are some outliers among the forecast errors. Half of our forecasts deviate by more than 1.81% while the other half by less than 1.81%. 
+We have created the function of making a prediction based on the current data on the ETF price of a future date. The interval between the future date and the latest date from the dataset can be adjusted by changing `pred_int`. Currently, `pred_int` is set to 1 to predict the next day's ETF close price. For example, `pred_int` can be set to 5 to predict the next week's (5 business days hereon) ETF close price. From our latest run, we have created 3 models with `pred_int` to be 1, 3, and 5, and we have got the following excellent results. 
+
+As for our 1-day model, the MAPE is 2.26% which means the mean of our predictions deviates from the actual values by 2.26%. The MDAPE is 1.56%, lower than the MAPE, which means there are some outliers among the forecast errors. Half of our forecasts deviate by more than 1.56% while the other half by less than 1.56%. 
 
 ```
-Median Absolute Error (MAE): 0.88
-Mean Absolute Percentage Error (MAPE): 2.55%
-Median Absolute Percentage Error (MDAPE): 1.81%
+# 1-day
+Median Absolute Error (MAE): 0.81
+Mean Absolute Percentage Error (MAPE): 2.26 %
+Median Absolute Percentage Error (MDAPE): 1.56 %
+
+# 3-day
+Median Absolute Error (MAE): 1.56
+Mean Absolute Percentage Error (MAPE): 4.27 %
+Median Absolute Percentage Error (MDAPE): 3.12 %
+
+# 5-day
+Median Absolute Error (MAE): 1.95
+Mean Absolute Percentage Error (MAPE): 5.76 %
+Median Absolute Percentage Error (MDAPE): 3.98 %
 ```
 
-We have also created the function of making a prediction based on the current data on the ETF price of a future date. The interval between the future date and the latest date from the dataset can be adjusted by changing `pred_int`. Currently, `pred_int` is set to 1 to predict the next day's ETF close price. For example, `pred_int` can be set to 5 to predict the next week's (5 business days hereon) ETF close price. 
+#### Post-processing and results
 
-```
-The close price for ETF on 2022-03-21 is 66.36
-The predicted close price for the next day is 66.33999633789062
-```
+Below shows an overview of the DataFrame after our processing and with our forecasts. 
 
-#### Work in Progress
+![](../machine_learning_model/Resources/forecasts_table.png)
 
-We will create two more models to make forecast for the next three days and the next five days. It will be updated to the main branch later. 
+Below shows the forecasts from our 1-day, 3-day, and 5-day models respectively. 
+
+![](../machine_learning_model/Resources/forecasts.png)
 
 ### Flow Chart
 
@@ -365,4 +413,3 @@ Due to the fluctuation of the ETF prices and lack of seasonality of data, the ti
 
 ### Limitation and Recommendation
 Though current model performs well with 1 day prediction and provides great tool for investors to make decision, it does require time and energy from investors to frequently look at the predictions. For long-term strategy planning, it will require better performaing results from longer time interval. While we have current model focuse on the price volatility, we suggest to enhance the project by adding Fear & Greed as a variable to assess the market sentiment impact on ETF prices. 
-
