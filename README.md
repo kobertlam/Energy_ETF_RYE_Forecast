@@ -164,7 +164,10 @@ For the multivariate model, we have included open, high, low, close prices, and 
 
 Because the exchange traded fund of our selection is an ETF from the energy sector, in addtion to the open, high, low, close prices, and volume of this ETF, we have also included the Brent Spot Price of Crude Oil into our neural networks model. 
 
-![](../machine_learning_model/Resources/sequential_daily.png)
+![](../machine_learning_model/Resources/sequential_daily.png)  
+The correlation between the ETF closing price and Crude oil closing price shows below.  
+
+![](../machine_learning_model/Resources/correlation_RYE_Oil.png)  
 
 After thorough group discussion, we have decided to proceed with one univariate approach and one multivariate approach. The univariate approach will be using the ARIMA model, to predict the future ETF prices solely based on the historical ETF prices. The multivariate approach will be using the Sequential model in neural networks, taking the open, high, low, close prices, volume, as well as the Brent Spot Price of Crude Oil into consideration. Below shows the features that we are going to use in our multivariate model. 
 
