@@ -8,7 +8,7 @@ PostgreSQL is used in our project, as it is efficient for us to connect through 
 
 `Yfinance` package is used to acquire the data though Yahoo Finance api. Pandas is used to clean the data and export to our local PostgreSQL database. 
 
-In a saparate notebook, pandas is used with a SQL query to join two tables and import them from our local PostgreSQL database into our notebook. Then, Pandas is used to perform further analysis. 
+In a separate notebook, pandas is used with a SQL query to join two tables and import them from our local PostgreSQL database into our notebook. Then, Pandas is used to perform further analysis. 
 
 ## Machine Learning
 
