@@ -363,8 +363,9 @@ ARIMA and TensorFlow with Keras Sequential Model are the Machine Learning models
 Tableau is used to create an interactive dashboard. 
   
 ## Conclusion  
-  
-### Results  
 
-### Limitation and recommendation
-  
+Due to the fluctuation of the ETF prices and lack of seasonality of data, the time series ARIMA model wasn't able to provide decent future price forecasts. Howwever, through neural networks sequential model, we are able to find relatively accurate ETF  price predictions 1 day ahead. The perfomance of this model tends to come down with the increase of prediction intervels.
+
+### Limitation and Recommendation
+
+
