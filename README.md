@@ -33,7 +33,7 @@ Details on our presentation of the project can also be found in the [presentatio
 
 ### Source of data
 
-1. Dataset for [Brent Spot Price of Crude Oil](https://www.eia.gov/dnav/pet/hist_xls/RBRTEd.xls) (Brent Spot Price, dollars per Barrel) from U.S. Energy Information Administration. The same data is also available from [`yfinance`](https://pypi.org/project/yfinance/) with ticker `BZ=F`. 
+1. Dataset for Brent Spot Price of Crude Oil (Brent Spot Price, dollars per Barrel) from [`yfinance`](https://pypi.org/project/yfinance/) Yahoo! Finance's API with ticker `BZ=F`.
 2. ETF price from [`yfinance`](https://pypi.org/project/yfinance/) Yahoo! Finance's API for ticker `RYE` - Invesco S&P 500 Equal Weight Energy ETF
 3. ETF portfolio holdings from [Invesco](https://www.invesco.com/us/financial-products/etfs/holdings?audienceType=Investor&ticker=RYE) for this ETF
 
