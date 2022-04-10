@@ -38,7 +38,7 @@ The ADF test is one of the most popular statistical tests used to determine the 
 - Null Hypothesis: the series has a unit root (value of a = 1)
 - Alternate Hypothesis: the series has no unit root
 
-Below are the results and the visualization. We can see that the time series is not stationary. The p-value is 0.220827, greater than 0.05, so we are not able to reject the Null Hypothesis. In addition, the Test Statistics are greater than the critical values. From the graph, we are able to see that the mean and the variance are fluctuating as well.
+Below are the results and the visualization. We can see that the time series is not stationary. The p-value is 0.214452, greater than 0.05, so we are not able to reject the Null Hypothesis. In addition, the Test Statistics are greater than the critical values. From the graph, we are able to see that the mean and the variance are fluctuating as well.
 
 ```
 Results of dickey fuller test
