@@ -43,7 +43,7 @@ We've decided to use PostgreSQL as our database, as it is easy and efficient for
 
 Below shows the Entity Relationship Diagram of our database. 
 
-![](Resources/ERD.png)
+![](../database/Resources/ERD.png)
 
 ### Connect with Jupyter Notebook
 
