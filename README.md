@@ -2,7 +2,7 @@
 
 ## Source of data
 
-1. Dataset for [Brent Spot Price of Crude Oil](https://www.eia.gov/dnav/pet/hist_xls/RBRTEd.xls) (Brent Spot Price, dollars per Barrel) from U.S. Energy Information Administration
+1. Dataset for [Brent Spot Price of Crude Oil](https://www.eia.gov/dnav/pet/hist_xls/RBRTEd.xls) (Brent Spot Price, dollars per Barrel) from U.S. Energy Information Administration. The same data is also available from [`yfinance`](https://pypi.org/project/yfinance/) with ticker `BZ=F`. 
 2. ETF price from [`yfinance`](https://pypi.org/project/yfinance/) Yahoo! Finance's API for ticker `RYE` - Invesco S&P 500 Equal Weight Energy ETF
 3. ETF portfolio holdings from [Invesco](https://www.invesco.com/us/financial-products/etfs/holdings?audienceType=Investor&ticker=RYE) for this ETF
 
@@ -22,14 +22,33 @@ Below shows the code to set up and connect to the database.
 from sqlalchemy import create_engine
 from config import db_password
 
-db_string = f'postgresql://postgres:{db_password}@127.0.0.1:5432/energy_etf_rye_forecast'
+# Connect to database
+db_string = f'postgresql://postgres:{db_password}@127.0.0.1:5432/energy_etf_forecast'
 engine = create_engine(db_string)
 db_connection = engine.connect()
+```
+
+Below is an example to pull data from Yahoo Finance API with `yfinance`. 
+
+```
+# Acquire data and pre-processing
+ticker = 'RYE'
+rye = yf.download(ticker)
+rye = rye.rename_axis('date')
+rye.columns = ['open', 'high', 'low', 'close', 'adj close', 'volume']
+
+# Acquire data and pre-processing
+ticker = 'BZ=F'
+brent = yf.download(ticker)
+brent = brent.rename_axis('date')
+brent.columns = ['open', 'high', 'low', 'brent', 'adj close', 'volume']
+brent = brent[['brent']]
 ```
 
 Below is an example to export the Pandas DataFrame to our database. 
 
 ```
+# Export to database
 rye.to_sql('rye', engine)
 brent.to_sql('brent_spot_price_crude_oil', engine)
 ```
@@ -37,6 +56,8 @@ brent.to_sql('brent_spot_price_crude_oil', engine)
 Below is an example to import the data from our database into Pandas DataFrame. 
 
 ```
+# Import and join ETF and brent oil data in the future
+
 query = 'SELECT * FROM rye'
 rye = pd.read_sql(query, db_connection, parse_dates=['date'], index_col='date')
 print('rye shape:', rye.shape)
