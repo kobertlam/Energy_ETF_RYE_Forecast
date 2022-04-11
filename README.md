@@ -428,7 +428,7 @@ Tableau is used to create an interactive dashboard.
 
 ### Results and Limitations
 
-Due to the fluctuation of the ETF prices and lack of strong seasonality, the time series ARIMA model wasn't able to provide an accurate price forecasts. The result shows the average price of previous values that were used as future prediction plotting a stright line. 
+Due to the fluctuation of the ETF prices and lack of strong seasonality, the time series ARIMA model wasn't able to provide an accurate price forecasts. The result shows the average price of previous values that were used as future prediction plotted as a stright line. 
 
 However, through neural networks sequential model, we are able to find relatively accurate ETF price predictions 1, 3, or 5 day(s) ahead. As for our 1-day model, the MAPE is 2.26% which means the mean of our predictions deviates from the actual values by 2.26%. The MDAPE is 1.56%, lower than the MAPE, which means there are some outliers among the forecast errors. Half of our forecasts deviate by more than 1.56% while the other half by less than 1.56%. The prediction accuracy of these 3 models tend to decrease with the increase of prediction intervels. 
 
