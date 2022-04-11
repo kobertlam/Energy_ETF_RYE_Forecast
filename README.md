@@ -422,13 +422,13 @@ Tableau is used to create an interactive dashboard.
 
 2. Is there any relationship between the crude oil prices and the ETF prices? Can we forecast the future ETF price based on both the historical ETF prices and the historical crude oil prices?
 
-    - Using R statistics package we have noticed a strong correlation between the closing price of Oil and RYE ETF (0.69) during the period of our analisys, corroborating to our initial premise that the moviment of oil could help forecasting the stocl prices of energy companies.      
+    - Using R statistics package we have noticed a strong correlation between the closing price of Oil and RYE ETF (0.69) during the period of our analisys, corroborating to our initial premise that the moviment of oil could help forecasting the stock prices of energy companies.      
 
     - Yes, based on our Keras Sequential model, we have built models that are able to provide forecasts with decent accuracy to the future ETF price based on both the historical ETF prices and the historical crude oil prices. 
 
 ### Results and Limitations
 
-Due to the fluctuation of the ETF prices and lack of strong seasonality, the time series ARIMA model wasn't able to provide an accurate future price forecasts. The result shows the average price of previous values that were used as future prediction plotting a stright line. 
+Due to the fluctuation of the ETF prices and lack of strong seasonality, the time series ARIMA model wasn't able to provide an accurate price forecasts. The result shows the average price of previous values that were used as future prediction plotting a stright line. 
 
 However, through neural networks sequential model, we are able to find relatively accurate ETF price predictions 1, 3, or 5 day(s) ahead. As for our 1-day model, the MAPE is 2.26% which means the mean of our predictions deviates from the actual values by 2.26%. The MDAPE is 1.56%, lower than the MAPE, which means there are some outliers among the forecast errors. Half of our forecasts deviate by more than 1.56% while the other half by less than 1.56%. The prediction accuracy of these 3 models tend to decrease with the increase of prediction intervels. 
 
