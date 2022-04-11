@@ -47,7 +47,7 @@ Below shows the Entity Relationship Diagram of our database.
 
 ### Connect with Jupyter Notebook
 
-Below shows the code to set up and connect to the database. 
+Below shows the [Jupyter Notebook](postgresql_connection.ipynb) to set up and connect to the database. 
 
 ```
 from sqlalchemy import create_engine
