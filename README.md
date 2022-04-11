@@ -422,7 +422,8 @@ Tableau is used to create an interactive dashboard.
 
 2. Is there any relationship between the crude oil prices and the ETF prices? Can we forecast the future ETF price based on both the historical ETF prices and the historical crude oil prices?
 
-    - Using [R Statistics Package](https://github.com/kobertlam/Energy_ETF_RYE_Forecast/blob/machine_learning_model/correlation_R.R) we have noticed a strong correlation between the closing price of Oil and RYE ETF ([0.69](../machine_learning_model//Resources/correlation_RYE_Oil.png)) within the period of our analysis, confirming our initial assumption that the movement of oil prices could help to forecast the energy ETF prices.
+    - Using [R Statistics Package](https://github.com/kobertlam/Energy_ETF_RYE_Forecast/blob/machine_learning_model/correlation_R.R) we have noticed a strong correlation between the closing price of Oil and RYE ETF (0.69) within the period of our analysis, confirming our initial assumption that the movement of oil prices could help to forecast the energy ETF prices.
+![](../machine_learning_model//Resources/correlation_RYE_Oil.png)
 
     - Yes, based on our Keras Sequential model, we have built models that are able to provide forecasts with decent accuracy to the future ETF price based on both the historical ETF prices and the historical crude oil prices. 
 
