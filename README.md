@@ -12,7 +12,7 @@ In a separate notebook, pandas is used with a SQL query to join two tables and i
 
 ## Machine Learning
 
-ARIMA and TensorFlow with Keras Sequential Model are the Machine Learning models that we have used. Details can also be found in the [machine_learning_model](https://github.com/kobertlam/Energy_ETF_RYE_Forecast/tree/machine_learning_model) branch. 
+ARIMA and LSTM Neural Network Model are the Machine Learning models that we have used. Details can also be found in the [machine_learning_model](https://github.com/kobertlam/Energy_ETF_RYE_Forecast/tree/machine_learning_model) branch. 
 
 ## Dashboard
 Tableau is used to create an interactive dashboard. 
