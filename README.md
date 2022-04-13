@@ -140,7 +140,7 @@ Before further analysis, we have conducted the [Augmented Dickey-Fuller Test](ht
 The ADF test is one of the most popular statistical tests used to determine the presence of a unit root in the time series, which helps identify if a time series is stationary or not. The null and alternate hypotheses are the following. If we fail to reject the null hypothesis, we can say that the time series is non-stationary, which means this time series can be linear or difference stationary. If both the mean and the standard deviation lines are flat, which implies that the mean and the variance are constant, the time series are stationary. 
 
 - Null Hypothesis: the series has a unit root (value of a = 1)
-- Alternate Hypothesis: the series has no unit root
+- Alternative Hypothesis: the series has no unit root
 
 Below are the results and the visualization. We can see that the time series is not stationary. The p-value is 0.214452, greater than 0.05, so we are not able to reject the Null Hypothesis. In addition, the Test Statistics are greater than the critical values. From the graph, we are able to see that the mean and the variance are fluctuating as well.
 
