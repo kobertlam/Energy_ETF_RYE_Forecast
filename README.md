@@ -25,7 +25,7 @@ If we are able to determine the relationship between the stock prices of the oil
 
 We prepared a [Google Slide](https://docs.google.com/presentation/d/1M9gE1Wv08GLSOgKtwCtLHypvGdmYd1BzGTxuklBDWRo/edit?usp=sharing) for presentation purposes.
 
-We included "Speaker Notes" in the Google Slide, and the recording of our presentation [rehersal](https://github.com/kobertlam/Energy_ETF_RYE_Forecast/blob/main/rehersal.mp4).
+We included "Speaker Notes" in the [Google Slide](https://docs.google.com/presentation/d/1M9gE1Wv08GLSOgKtwCtLHypvGdmYd1BzGTxuklBDWRo/edit?usp=sharing), and the recording of our presentation [rehersal](https://github.com/kobertlam/Energy_ETF_RYE_Forecast/blob/main/rehersal.mp4).
 
 Details on our presentation of the project can also be found in the [presentation](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/tree/presentation) branch.
 
