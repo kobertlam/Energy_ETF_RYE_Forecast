@@ -32,11 +32,13 @@ If we are able to determine the relationship between the stock prices of the oil
 
 Details on our presentation of the project can also be found in the [presentation](https://github.com/kobertlam/Oil_Price_and_Stock_Price_Analysis/tree/presentation) branch.
 
-## Data Source
+## Database
+
+Go to [database](https://github.com/kobertlam/Energy_ETF_RYE_Forecast/tree/database) branch.
 
 ## Machine Learning Models
 
-## Database
+Go to [machine_learning_model](https://github.com/kobertlam/Energy_ETF_RYE_Forecast/tree/machine_learning_model) branch. 
 
 ## Dashboard
 
