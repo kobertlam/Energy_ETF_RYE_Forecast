@@ -184,7 +184,7 @@ Because the exchange traded fund of our selection is an ETF from the energy sect
 
 ![](../machine_learning_model/Resources/sequential_daily.png)  
 
-The correlation between the ETF closing price and Crude oil closing price shows below.  
+The correlation between the ETF closing price and Crude oil closing price shows below, that shows there is a relationship between ETF and crude oil price.
 
 ![](../machine_learning_model/Resources/correlation_RYE_Oil.png)  
 
