@@ -1,5 +1,19 @@
 # Energy ETF RYE Forecast
 
+## Quick links
+
+Go to [master notebook](https://github.com/kobertlam/Energy_ETF_RYE_Forecast/blob/main/master.ipynb)
+
+Go to [database connection](https://github.com/kobertlam/Energy_ETF_RYE_Forecast/blob/main/postgresql_connection.ipynb)
+
+Go to [Tableau dashboard](https://public.tableau.com/app/profile/kobert.lam/viz/EnergyETFRYEBrentOilViz/EnergyETFRYEBrentOilViz?publish=yes)
+
+Go to [Google Slides](https://docs.google.com/presentation/d/1M9gE1Wv08GLSOgKtwCtLHypvGdmYd1BzGTxuklBDWRo/edit?usp=sharing)
+
+Go to [environment requirements](https://github.com/kobertlam/Energy_ETF_RYE_Forecast/blob/main/requirements.txt)
+
+Go to [rehearsal video](https://github.com/kobertlam/Energy_ETF_RYE_Forecast/blob/main/rehersal.mp4)
+
 ## Overview 
 
 ### Background
