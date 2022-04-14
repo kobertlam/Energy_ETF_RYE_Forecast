@@ -364,7 +364,7 @@ Below shows the forecasts from our 1-day, 3-day, and 5-day models respectively.
 
 ### Flow Chart
 
-The flow chart can be seen below. 
+The flow chart of our project can be seen below. 
 
 ![Machine Learning Flow Chart](../machine_learning_model/Resources/ml_flow_chart1.jpeg)
 
