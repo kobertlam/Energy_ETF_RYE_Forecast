@@ -158,7 +158,7 @@ dtype: float64
 
 ![](../machine_learning_model/Resources/rye_stationarity.png)
 
-#### Separate trend and seasonality
+#### Separate trend and Seasonality
 
 In order to perform a time series analysis, we need to separate trend and seasonality from the time series. The resultant series will become stationary through this process. 
 
@@ -168,7 +168,7 @@ The `seasonal_decompose` function has been used to take a log of the time series
 
 ![](../machine_learning_model/Resources/rye_masd.png)
 
-### Feature engineering and selection
+### Feature Engineering and Selection
 
 Forecasting the price of a financial asset is a complex challenge. In general, the price is determined by a variety of variables, economic cycles, unforeseen events, psychological factors, market sentiment, the weather, or even war. All these variables will more or less have an influence on the price of the financial asset. In addition, many of these variables are interdependent, which makes statistical modeling even more complex. 
 
@@ -198,7 +198,7 @@ For both models, ARIMA and Sequential, we have split the data into 80% training 
 
 ![](../machine_learning_model/Resources/arima_split.png)
 
-### Models of choice
+### Models of Choice
 
 #### ARIMA
 
